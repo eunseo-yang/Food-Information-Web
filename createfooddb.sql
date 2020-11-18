@@ -4,7 +4,7 @@
 
 /* nutrition table create */
 
-CREATE TABLE nutrition ( num int(10) DEFAULT NULL, name varchar(20) NOT NULL,
+CREATE TABLE nutrition ( num int(10) DEFAULT NULL primary key, name varchar(20) NOT NULL,
  classification varchar(20) NOT NULL, serving_size int(5) NOT NULL,
  kcal float NOT NULL, protein float NOT NULL, fat float NOT NULL, 
 carbohydrate float NOT NULL, sugar float NOT NULL, dietary_fiber float NOT NULL,
@@ -303,14 +303,14 @@ sodium float NOT NULL, cholesterol float NOT NULL );
 
 /*sport type table create */
 
-CREATE TABLE sport ( sport_spec_index int(20) NOT NULL, sport_specification varchar(20) NOT NULL );
+CREATE TABLE sport ( sport_spec_index int(20) NOT NULL primary key, sport_specification varchar(20) NOT NULL );
 
 INSERT INTO sport(sport_specification) VALUES ('light'),('moderate'),('vigorous');
 
 
 /* light intensity sport table create */
 
-CREATE TABLE light_intensity ( light_index int(20) NOT NULL, light_name varchar(20) NOT NULL, met float NOT NULL ) ;
+CREATE TABLE light_intensity ( light_index int(20) NOT NULL primary key, light_name varchar(20) NOT NULL, met float NOT NULL ) ;
 
 INSERT INTO light_intensity(light_name, met) VALUES
 ('글쓰기', '1.5'),
@@ -321,7 +321,7 @@ INSERT INTO light_intensity(light_name, met) VALUES
 
 /* moderate intensity sport table create */
 
-CREATE TABLE moderate_intensity ( moderate_index int(11) NOT NULL, moderate_name varchar(20) NOT NULL, met float NOT NULL ) ;
+CREATE TABLE moderate_intensity ( moderate_index int(11) NOT NULL primary key, moderate_name varchar(20) NOT NULL, met float NOT NULL ) ;
 
 INSERT INTO moderate_intensity(moderate_name, met) VALUES
 ('자전거 타기', '3.0'),
@@ -348,7 +348,7 @@ INSERT INTO moderate_intensity(moderate_name, met) VALUES
 
 /* vigorous intensity sport table create */
 
-CREATE TABLE vigorous_intensity ( vigorous_index int(11) NOT NULL, vigorous_name varchar(20) NOT NULL, met float NOT NULL ) ;
+CREATE TABLE vigorous_intensity ( vigorous_index int(11) NOT NULL primary key, vigorous_name varchar(20) NOT NULL, met float NOT NULL ) ;
 
 INSERT INTO vigorous_intensity(vigorous_name, met) VALUES
 ('고강도 웨이트 트레이닝', '6.0'),
@@ -381,7 +381,7 @@ INSERT INTO vigorous_intensity(vigorous_name, met) VALUES
 /*recipe table create*/
 
 
-CREATE TABLE fooddb.recipe ( RCP_SEQ INT NOT NULL , RCP_NM VARCHAR(20)  , RCP_WAY2 VARCHAR(20) , RCP_PAT2 VARCHAR(20)  , INFO_WGT FLOAT , INFO_ENG FLOAT,
+CREATE TABLE fooddb.recipe ( RCP_SEQ INT NOT NULL primary key , RCP_NM VARCHAR(20)  , RCP_WAY2 VARCHAR(20) , RCP_PAT2 VARCHAR(20)  , INFO_WGT FLOAT , INFO_ENG FLOAT,
  INFO_CAR FLOAT  , INFO_PRO FLOAT, INFO_FAT FLOAT  , INFO_NA FLOAT , HASH_TAG VARCHAR(20) , ATT_FILE_NO_MAIN VARCHAR(20) , ATT_FILE_NO_MK VARCHAR(20) , 
 RCP_PARTS_DTLS VARCHAR(20) , MANUAL01 VARCHAR(100)  , MANUAL_IMG01 VARCHAR(512)  , MANUAL02 VARCHAR(100)  , MANUAL_IMG02 VARCHAR(512)  ,
  MANUAL03 VARCHAR(100) , MANUAL_IMG03 VARCHAR(512) , MANUAL04 VARCHAR(100)  , MANUAL_IMG04 VARCHAR(512)  , MANUAL05 VARCHAR(100) ,
@@ -445,7 +445,7 @@ FOREIGN KEY (user_id) REFERENCES user(id) ON UPDATE CASCADE
 
 /* allergy info table create */
 
-CREATE TABLE allergy_info (aller_index int(11) NOT NULL AUTO_INCREMENT, 
+CREATE TABLE allergy_info (aller_index int(11) NOT NULL primary key AUTO_INCREMENT, 
 aller_food_type VARCHAR(20), aller_food_name VARCHAR(100), replace_food VARCHAR(100), nutrient VARCHAR(100), PRIMARY KEY(aller_index) );
 
 
