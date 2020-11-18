@@ -1,3 +1,42 @@
+
+<?php
+	include 'db_info.php';
+
+
+    $name = $_POST['name'];
+    $information = $_POST['information'];
+    $item = $_POST['item'];
+	
+	$check = "SELECT * FROM Fooddb.recipe WHERE RCP_SEQ = '$name'";
+	$result = $mysqli->query($check);
+
+    if($result!=null){
+        $row = $result->fetch_array(3);
+        $a=$row['menu'];
+        echo $a;
+
+       
+    }
+    else echo "입력하신 음식을 찾을 수 없습니다";
+    $check2 = "UPDATE nutrition set [$item]=$information WHERE name = '$name'";
+	$result2 = $mysqli->query($check2);
+
+    if($result2!=null){
+        $row = $result2->fetch_array(3);
+        $a=$row['menu'];
+        echo $a;
+
+       
+    }
+    else echo "입력하신 음식을 찾을 수 없습니다";
+
+    $id = "SELECT id from nutrition where name='$name'"; 
+    $check3 = "DELETE FROM nutrition  WHERE num='$id'";
+	$result3 = $mysqli->query($check3);
+
+
+?>
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -47,18 +86,13 @@
         color: var(--font-color);
         border: solid 1px var(--border-gray-color);
     }
-    .main-container .main-wrap .logo-wrap{
-        padding-top:55px;
-    }
-    .main-container .main-wrap .logo-wrap img
-    {
-        width: 231px;
-        height: 44px;
-    }
     
     .main-container .main-wrap header .sel-lang-wrap{
         display:flex;
         justify-content:flex-end;
+    }
+    .password-wrap{
+        margin-top: 13px;
     }
 
     .login-input-section-wrap{
@@ -79,28 +113,13 @@
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     }
-    .password-wrap{
-        margin-top: 13px;
-    }
-    .Insert-button-wrap input{
-        border: none;
-        width:100px;
-        margin-top: 10px;
-        font-size: 20px;
-        margin-left: 10px;
-        height:30px;
-        float:right;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
-
-    }
     .login-input-wrap input{
         border: none;
-        width:1000px;
+        width:800px;
         margin-top: 10px;
         font-size: 20px;
         margin-left: 10px;
-        height:30px;
+        height:50px;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         border-radius: 10px;
     }
@@ -108,8 +127,8 @@
         padding-top: 13px;
     }
     .Insert-button-wrap button{
-        width: 100px;
-        height :48px;
+        width: 1000px;
+        height :50px;
         font-size: 18px;
         background: var(--naver-green-color);
         color: white;
@@ -118,8 +137,8 @@
     }
     .login-button-wrap button{
         width: 1000px;
-        height :48px;
-        font-size: 18px;
+        height :70px;
+        font-size: 20px;
         background: var(--naver-green-color);
         color: white;
         border: solid 1px var(--naver-green-border-color);
@@ -127,7 +146,7 @@
     }
     .Easy-sgin-in-wrap{
         text-align: center;
-        width:1000px;
+        width:800px;
     }
     .Easy-sgin-in-wrap .sign-button-list
     {
@@ -140,8 +159,6 @@
     }
 
     .Easy-sgin-in-wrap .sign-button-list li button{
-        width: 465px;
-        height: 56px;
         border: solid 1px var(--border-gray-color);
         text-align: middle;
         align-items: center;
@@ -164,7 +181,7 @@
     }
     .Easy-sgin-in-wrap .sign-button-list li{
 	    padding-bottom: 10px;
-        padding-left: 15px;
+        padding-left: 10px;
 	    font-size: 20px;
         align-items: center;
         text-align: center;
@@ -186,7 +203,7 @@
 
         div.button input
         {
-            padding: 5px;
+            padding: 0px;
             width: 100%;
             font-size: 18px;
         }
@@ -267,18 +284,26 @@
         {
             margin: auto;
             width: 50%;
+            height : 50px;
         }
 
     #div.button input
         {
             padding: 5px;
-             width: 100%;
+            width: 100%;
+            height:50px;
             font-size: 18px;
         }
+        .login-input-section-wrap{
+        padding-top: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
 
     </style>
 </head>
-
 <body>
 <div class="main-container">
 	<div class="main-wrap">
@@ -299,26 +324,39 @@
             <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
         </ul>
         </nav>
+        <form method='post' action="food_info_result.php">
+            <section class="login-input-section-wrap">
+                <h2>You can insert new menu into our db! Try it!</h2> 
+            </section>
+            <section class="login-input-section-wrap">
+                <div class="login-input-wrap">	
+                    <input placeholder="Input item you want to update." type="text" id="item" name="item"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input information you want to update." type="text" id="information" name="information"></input>
+                </div>
+            </section>
+            <section class="Easy-sgin-in-wrap">
+                <ul class="login-button-wrap">
+                    </li><button type='submit'>Update</button>
+                </ul>
+            </section>
+        </form>
+        <br>
+        <br>
+        <br>
+        <form method='post' action="food_info_result.php">
+            <section class="login-input-section-wrap">
+                <h2>You can delete this menu in our db! Try it!</h2> 
+            </section>
+            <section class="Easy-sgin-in-wrap">
+                <ul class="login-button-wrap">
+                    </li><button type='submit' id="delete" name="delete">Delete</button>
+                </ul>
+            </section>
+        </form>
     </div>
 </div>
 
 </body>
-
-<?php
-	include 'db_info.php';
-
-
-	$name = $_POST['name'];
-	
-	$check = "SELECT * FROM Fooddb.recipe WHERE RCP_SEQ = '$name'";
-	$result = $mysqli->query($check);
-
-    if($result!=null){
-        $row = $result->fetch_array(3);
-        $a=$row['menu'];
-        echo $a;
-
-       
-    }
-    else echo "입력하신 음식을 찾을 수 없습니다";
-?>
+</html>
