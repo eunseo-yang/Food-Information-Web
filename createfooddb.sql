@@ -461,12 +461,15 @@ INSERT INTO allergy_info(aller_food_type, aller_food_name, replace_food, nutrien
 
 
 
-
-
-
-
-
-
+CREATE INDEX A ON nutrition(num);
+CREATE INDEX B ON sport(sport_spec_index);
+CREATE INDEX C ON light_intensity(light_index);                                                                           
+CREATE INDEX D ON moderate_intensity(moderate_index);                                                                          
+CREATE INDEX E ON vigorous_intensity(vigorous_index);
+CREATE INDEX F ON fooddb.recipe(RCP_SEQ INT);
+CREATE INDEX G ON user(id);
+CREATE INDEX H ON today_info(today_index);
+CREATE INDEX I ON allergy_info(aller_index);
 
 
 
