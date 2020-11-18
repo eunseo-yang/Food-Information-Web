@@ -1,26 +1,3 @@
-<?php
-    include 'db_info.php';
-    session_start();
-
-
-    $name = $_POST['name'];
-    
-	$check = "SELECT * FROM Fooddb.recipe WHERE RCP_SEQ = '$name'";
-	$result = $mysqli->query($check);
-
-    if($result!=null){
-        $row = $result->fetch_array(3);
-        $a=$row['menu'];
-        echo $a;
-
-       
-    }
-    else echo "입력하신 음식을 찾을 수 없습니다";
-   
-
-
-?>
-
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -288,6 +265,7 @@
 
     </style>
 </head>
+
 <body>
 <div class="main-container">
 	<div class="main-wrap">
@@ -308,38 +286,38 @@
             <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
         </ul>
         </nav>
-        <form method='post' action="food_info_insert.php">
-            <section class="login-input-section-wrap">
-                <h2>You can insert new menu into our db! Try it!</h2> 
-            </section>
-            <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <input placeholder="Input item you want to update." type="text" id="item" name="item"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input information you want to update." type="text" id="information" name="information"></input>
-                </div>
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='submit'>Update</button>
-                </ul>
-            </section>
-        </form>
-        <br>
-        <br>
-        <br>
         
-            <section class="login-input-section-wrap">
-                <h2>You can delete this menu in our db! Try it!</h2> 
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='button' onClick="location.href='food_info_delete.php'">Delete</button>
-                </ul>
-            </section>
     </div>
 </div>
 
 </body>
-</html>
+
+
+
+<?php
+    include 'db_info.php';
+    session_start();
+
+
+    $information = $_POST['information'];
+    $item = $_POST['item'];
+	
+
+    $check2 = "UPDATE nutrition set [$item]=$information WHERE name in (SELECT name from user where id= $_SESSION['id']";
+	$result2 = $mysqli->query($check2);
+
+    if($result2!=null){
+        $row = $result2->fetch_array(3);
+        $a=$row['menu'];
+        echo $a;
+
+       
+    }
+    else echo "입력하신 음식을 찾을 수 없습니다";
+
+    $id = "SELECT id from nutrition where name='$name'"; 
+    $check3 = "DELETE FROM nutrition  WHERE num='$id'";
+	$result3 = $mysqli->query($check3);
+
+
+?>
