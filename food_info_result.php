@@ -107,7 +107,15 @@
     .login-button-wrap {
         padding-top: 13px;
     }
-    
+    .Insert-button-wrap button{
+        width: 100px;
+        height :48px;
+        font-size: 18px;
+        background: var(--naver-green-color);
+        color: white;
+        border: solid 1px var(--naver-green-border-color);
+
+    }
     .login-button-wrap button{
         width: 1000px;
         height :48px;
@@ -291,37 +299,26 @@
             <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
         </ul>
         </nav>
-        <br>
-        <br>
-        <br>
-        <br>
-        <form method='post' action="food_info_result.php">
-            <section class="login-input-section-wrap">
-                    <h2> Find the menu information! </h2>
-                    <h3> Please input menu name you want to know about in details.  </h3>
-                
-            </section>
-            
-            <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-            
-                    <p><input placeholder="Search the menu" type="text" name="name" id="name"></input></p>
-                
-                </div>
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><p><button type="submit">Result</button></p>
-                </ul>
-            </section>
-        </form>
-        <br>
-        <br>
-        <br>
-        
-
     </div>
 </div>
 
 </body>
-</html>
+
+<?php
+	include 'db_info.php';
+
+
+	$name = $_POST['name'];
+	
+	$check = "SELECT * FROM Fooddb.recipe WHERE RCP_SEQ = '$name'";
+	$result = $mysqli->query($check);
+
+    if($result!=null){
+        $row = $result->fetch_array(3);
+        $a=$row['menu'];
+        echo $a;
+
+       
+    }
+    else echo "입력하신 음식을 찾을 수 없습니다";
+?>
