@@ -37,11 +37,6 @@
 
 ?>
 
-
-
-
-
-
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -347,7 +342,6 @@
                 </ul>
             </section>
         </form>
-        
         <br>
         <br>
         <br>
