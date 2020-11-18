@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <head>
     <meta charset="UTF-8">
 	<title>Login</title>
@@ -82,17 +82,15 @@
     }
     .password-wrap{
         margin-top: 13px;
-        width:900px;
-        text-align: center;
     }
     .login-input-wrap input{
         border: 1px;
-        width:850px;
+        width:800px;
         margin-top: 10px;
         font-size: 20px;
         margin-left: 10px;
         height:30px;
-        border-radius: 10px;
+
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
     }
@@ -123,7 +121,7 @@
     }
 
     .Easy-sgin-in-wrap .sign-button-list li button{
-        width: 400px;
+        width: 465px;
         height: 56px;
         border: solid 1px var(--border-gray-color);
         text-align: middle;
@@ -158,8 +156,11 @@
         font-style:solid;
         font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
-
-
+    p2{
+        font-size:20px;
+        font-family: 'Arial Narrow Bold', sans-serif;
+    
+    }
 
     h1{
             color:rgb(214, 97, 117);
@@ -194,6 +195,7 @@
             display:inline;
             padding:10px;
             vertical-align: middle;
+
         }
 
         
@@ -221,7 +223,6 @@
         #topMenu .menuLink:hover{
             color : white;
             background-color:#d3345b;
-
 
         }
         #home{
@@ -268,64 +269,52 @@
 
     </style>
 </head>
-
-
 <body>
 <div class="main-container">
-    <div class="main-wrap">
-    <br>
-    <h1> Health Care Service </h1>
-    <br>
-    <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
-    <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-    <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
-    <br>
-    <br>
-    <br>
-    <nav id="topMenu">
-        <ul>
-            <li><a class="menuLink" href="food_info.html">Food Information</a></li>
-            <li><a class="menuLink" href="food_recipe.html">Food Recipe</a></li>
-            <li><a class="menuLink" href="exercise.html">Excercise Calculation</a></li>
-            <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
-        </ul>
-    </nav>
-    <br>
-    <br>
-    <br>
-    <br>
-    <section class="login-input-section-wrap">
-	
-            <h2> Calculate the nutrients and calories you need today!  </h2>
-            <h3> Please input your today's menu. </h3>
+<div class="main-wrap">
+<?php
+	include 'db_info.php';
 
-    </section>
-    <br>
+	$gender = (int)$_POST['gender'];
+    $height = (int)$_POST['height'];
+    $weight = (int)$_POST['weight'];
+    $age = (int)$_POST['age'];
+    $minute = (int)$_POST['minute'];
+    $calorie = (int)$_POST['calorie'];
 
-    <form method='post' action="needed_cal_nut.php">
-        <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <h2> <p2>Input your today's menu. </h2></p2> <br>
-                    <div class="login-input-wrap password-wrap">	
-                        <input type="text" placeholder="Breakfast">
-                    </div>
-                    <div class="login-input-wrap password-wrap">	
-                        <input type="text" placeholder="Lunch">
-                    </div>
-                    <div class="login-input-wrap password-wrap">	
-                        <input type="text" placeholder="Dinner">
-                    </div>
-                </div>
-                
-        </section>
-        <br>
-		<section class="Easy-sgin-in-wrap">
-			<ul class="login-button-wrap">
-                </li><button type='submit' >Search</button>
-            </ul>
-        </section>
-    </form>
+    if ($gender == 'Man'){
+        $metabolic = 66+(13.8*$weight)+(5*$height)-(6.8*$age);
+    }
+    else {
+        $metabolic = 655+(9.6*$weight)+(1.8+$height)-(4.7*$age);
+    }
+
+    $met = $calorie / 5 * 1000 / $weight / $minute;
+    
+    
+	$check = "SELECT * FROM moderate_intensity WHERE met = '$met'";
+	$result = $mysqli->query($check);
+
+	if(!empty($result) && $result->num_rows == 1){
+		$row = $result->fetch_array(3); #1 is MYSQLI_NUM 2 is equivalent to MYSQLI_ASSOC 3 is MYSQLI_BOTH
+        
+        while ($row){
+            $a =$row['moderate_name'];
+            $b =$row['met'];
+            echo "'$a'을/를 추천합니다. ";
+            echo "'$b'met을 운동할 수 있습니다.";
+		}
+	}
+	else{
+		echo "No information here. Please input another rate of desired calorie consumption or amount of desired exercise time";
+		//header("location: /login.php");
+	}
+    echo "당신의 기초대사량은 '$metabolic' 입니다.";
+
+?>
 </div>
 </div>
 </body>
 </html>
+
+

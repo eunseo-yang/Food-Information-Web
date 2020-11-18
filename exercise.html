@@ -302,18 +302,27 @@
 
     </section>
     <br>
-    <form method='post' action="exercise.php">
+    <form method='post' action="exercise_cal.php">
         <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <h2> <p2>Choose your gender. </h2></p2> <br>
-                    <p>Man<input type="radio" name="Man" value="Man"></p>
-                    <p>Woman<input type="radio" name="Woman" value="Woman"></p>
+
+
+                <div class="login-input-wrap password-wrap">	
+                        <input type="text" placeholder="gender 남/여" id="gender" name="gender"/> 
                 </div>
                 <div class="login-input-wrap password-wrap">	
-                    <input type="text" placeholder="height"/> cm
+                    <input type="text" placeholder="height" id="height" name="height"/> cm
                 </div>
                 <div class="login-input-wrap password-wrap">	
-                    <input type="text" placeholder="weight"/> kg
+                    <input type="text" placeholder="weight" id="weight", name="weight"/> kg
+                </div>
+                <div class="login-input-wrap password-wrap">	
+                    <input type="text" placeholder="age" id="age", name="age"/> 세
+                </div>
+                <div class="login-input-wrap password-wrap">	
+                    <input type="text" placeholder="desired exercise time" id="minute", name="minute"/> minute
+                </div>
+                <div class="login-input-wrap password-wrap">	
+                    <input type="text" placeholder="desired calorie consumption" id="calorie", name="calorie"/> kcal
                 </div>
         </section>
         <br>
@@ -322,8 +331,32 @@
                 </li><button type='submit' >Search</button>
             </ul>
         </section>
+        <Br><Br><Br>
+        <form method='post' action="food_info.php">
+            <section class="Easy-sgin-in-wrap">
+                <ul class="Insert-button-wrap">
+                    <h2 >Or you can add exercise information that is not here! </h2>
+                </ul>
+            </section>
+            <section class="login-input-section-wrap">
+                <div class="login-input-wrap">	
+                    <input placeholder="Add exercise type!" type="text" id="add_type"></input>
+                </div>
+                <div class="login-input-wrap">
+                    <input placeholder="Add exercise Met!" type="text" id="add_met"></input>
+                </div>
+            </section>
+            <section class="Easy-sgin-in-wrap">
+                <ul class="login-button-wrap">
+                </li><button type='submit'>Insert</button>
+                </ul>
+            </section>
+            
+        </form>
+
     </form>
     </div>
 </div>
+
 </body>
 </html>
