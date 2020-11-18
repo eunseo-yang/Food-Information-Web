@@ -310,8 +310,8 @@
 		//header("location: /login.php");
 	}
     echo "당신의 기초대사량은 '$metabolic' 입니다.";
-
 ?>
+
 </div>
 </div>
 </body>
