@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -48,18 +47,13 @@
         color: var(--font-color);
         border: solid 1px var(--border-gray-color);
     }
-    .main-container .main-wrap .logo-wrap{
-        padding-top:55px;
-    }
-    .main-container .main-wrap .logo-wrap img
-    {
-        width: 231px;
-        height: 44px;
-    }
     
     .main-container .main-wrap header .sel-lang-wrap{
         display:flex;
         justify-content:flex-end;
+    }
+    .password-wrap{
+        margin-top: 13px;
     }
 
     .login-input-section-wrap{
@@ -80,28 +74,13 @@
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     }
-    .password-wrap{
-        margin-top: 13px;
-    }
-    .Insert-button-wrap input{
-        border: none;
-        width:100px;
-        margin-top: 10px;
-        font-size: 20px;
-        margin-left: 10px;
-        height:30px;
-        float:right;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
-
-    }
     .login-input-wrap input{
         border: none;
-        width:1000px;
+        width:800px;
         margin-top: 10px;
         font-size: 20px;
         margin-left: 10px;
-        height:30px;
+        height:50px;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         border-radius: 10px;
     }
@@ -109,8 +88,8 @@
         padding-top: 13px;
     }
     .Insert-button-wrap button{
-        width: 100px;
-        height :48px;
+        width: 1000px;
+        height :50px;
         font-size: 18px;
         background: var(--naver-green-color);
         color: white;
@@ -119,8 +98,8 @@
     }
     .login-button-wrap button{
         width: 1000px;
-        height :48px;
-        font-size: 18px;
+        height :70px;
+        font-size: 20px;
         background: var(--naver-green-color);
         color: white;
         border: solid 1px var(--naver-green-border-color);
@@ -128,7 +107,7 @@
     }
     .Easy-sgin-in-wrap{
         text-align: center;
-        width:1000px;
+        width:800px;
     }
     .Easy-sgin-in-wrap .sign-button-list
     {
@@ -141,8 +120,6 @@
     }
 
     .Easy-sgin-in-wrap .sign-button-list li button{
-        width: 465px;
-        height: 56px;
         border: solid 1px var(--border-gray-color);
         text-align: middle;
         align-items: center;
@@ -165,7 +142,7 @@
     }
     .Easy-sgin-in-wrap .sign-button-list li{
 	    padding-bottom: 10px;
-        padding-left: 15px;
+        padding-left: 10px;
 	    font-size: 20px;
         align-items: center;
         text-align: center;
@@ -187,7 +164,7 @@
 
         div.button input
         {
-            padding: 5px;
+            padding: 0px;
             width: 100%;
             font-size: 18px;
         }
@@ -268,337 +245,23 @@
         {
             margin: auto;
             width: 50%;
+            height : 50px;
         }
 
     #div.button input
         {
             padding: 5px;
-             width: 100%;
+            width: 100%;
+            height:50px;
             font-size: 18px;
         }
-
-    </style>
-</head>
-
-<body>
-<div class="main-container">
-	<div class="main-wrap">
-        <br>
-        <h1> Health Care Service </h1>
-
-            <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
-            <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-            <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
-        <br>
-        <br>
-        <br>
-        <nav id="topMenu">
-        <ul>
-            <li><a class="menuLink" href="food_info.html">Food Information</a></li>
-            <li><a class="menuLink" href="food_recipe.html">Food Recipe</a></li>
-            <li><a class="menuLink" href="exercise.html">Excercise Calculation</a></li>
-            <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
-        </ul>
-        </nav>
-        <br>
-        <br>
-        <br>
-        <br>
-        <form method='post' action="food_info.php">
-            <section class="login-input-section-wrap">
-                    <h2> Find the menu information! </h2>
-                    <h3> Please input menu name you want to know about in details.  </h3>
-                
-            </section>
-            <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <input placeholder="Search the menu" type="text"></input>
-                </div>
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='submit'>Result</button>
-                </ul>
-            </section>
-        </form>
-        <br>
-        <br>
-        <br>
-
-    </div>
-</div>
-
-</body>
-=======
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-	<title>Login</title>
-	<link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
-    <style type = "text/css">
-
-    :root{ 
-        --body-background-color:white;
-        --font-color: #4e4e4e;
-        --border-gray-color :#d3345b;
-        --naver-green-color: #d3345b;
-        --naver-green-border-color: #d3345b;
-    }
-    h1{
-            color:rgb(214, 97, 117);
-            text-align:center;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            font-style: bold;
-            font-size:40px;
-        }
-    *{
-        margin:0;
-        padding:0;
-    }
-    
-    body{
-        background:var(--body-background-color);
-    }
-    
-    .main-container{
-        width:100%;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        margin-top: 21px;
-    }
-    .main-container .main-wrap{
-        width:1000px;
-    
-    }
-    .main-container .main-wrap .sel-lang-wrap .lang-select
-    {
-        width: 1000px;
-        height: 30px;
-        color: var(--font-color);
-        border: solid 1px var(--border-gray-color);
-    }
-    .main-container .main-wrap .logo-wrap{
-        padding-top:55px;
-    }
-    .main-container .main-wrap .logo-wrap img
-    {
-        width: 231px;
-        height: 44px;
-    }
-    
-    .main-container .main-wrap header .sel-lang-wrap{
-        display:flex;
-        justify-content:flex-end;
-    }
-
-    .login-input-section-wrap{
+        .login-input-section-wrap{
         padding-top: 60px;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
-    .login-input-wrap{
-        width: 1000px;
-        height :fit-content;
-        margin:3px;
-        padding:5px;
-        border: solid 1px var(	--border-gray-color );
-        background: white;
-        font-size: 15px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-    }
-    .password-wrap{
-        margin-top: 13px;
-    }
-    .Insert-button-wrap input{
-        border: none;
-        width:100px;
-        margin-top: 10px;
-        font-size: 20px;
-        margin-left: 10px;
-        height:30px;
-        float:right;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
-
-    }
-    .login-input-wrap input{
-        border: none;
-        width:1000px;
-        margin-top: 10px;
-        font-size: 20px;
-        margin-left: 10px;
-        height:30px;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        border-radius: 10px;
-    }
-    .login-button-wrap {
-        padding-top: 13px;
-    }
-    
-    .login-button-wrap button{
-        width: 1000px;
-        height :48px;
-        font-size: 18px;
-        background: var(--naver-green-color);
-        color: white;
-        border: solid 1px var(--naver-green-border-color);
-
-    }
-    .Easy-sgin-in-wrap{
-        text-align: center;
-        width:1000px;
-    }
-    .Easy-sgin-in-wrap .sign-button-list
-    {
-        padding-top:25px;
-        list-style: none;
-        width: 465px;
-        display: flex;
-        align-items: center;
-        text-align: center;
-    }
-
-    .Easy-sgin-in-wrap .sign-button-list li button{
-        width: 465px;
-        height: 56px;
-        border: solid 1px var(--border-gray-color);
-        text-align: middle;
-        align-items: center;
-        background: white;
-        align-items: center;
-    }
-    .Easy-sgin-in-wrap .sign-button-list li button i{
-        padding-left: 15px;
-        font-size: 20px;
-    }
-    .Easy-sgin-in-wrap .sign-button-list li button span{
-        padding-left: 20px;
-        font-size: 18px;
-    }
-    .Easy-sgin-in-wrap .forget-msg{
-        color:var(--font-color);
-        font-size: 14px;
-        padding-top: 10px;
-    
-    }
-    .Easy-sgin-in-wrap .sign-button-list li{
-	    padding-bottom: 10px;
-        padding-left: 15px;
-	    font-size: 20px;
-        align-items: center;
-        text-align: center;
-        border-color: #d3345b;
-    }
-
-    h1{
-            color:rgb(214, 97, 117);
-            text-align:center;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            font-style: bold;
-            font-size:40px;
-        }
-        div.button
-        {
-            margin: auto;
-            width: 50%;
-        }
-
-        div.button input
-        {
-            padding: 5px;
-            width: 100%;
-            font-size: 18px;
-        }
- 
-        #topMenu{
-            height :50px;
-            width : 100%;
-            align-self: center;
-            text-align:center;
-            list-style:none;
-            color:white;
-            background-color: rgb(245, 150, 166);
-            float:left;
-            line-height:30px;
-            display:inline;
-            padding:10px;
-            vertical-align: middle;
-
-        }
-
-        
-        #topMenu li{
-            display:inline;
-            padding:auto;
-        }
-        #topMenu a{
-            display:inline;
-            padding:100px;
-            margin: 20px;
-        }
-
-        #topMenu .menuLink{
-            text-decoration:none;              
-            color: white;                      
-            display: inline;                    
-            width: 150px;      
-            padding:10px;                
-            font-size: 17px;                   
-            font-weight: bold;                 
-            font-family: "Trebuchet MS", Dotum, Arial;
-
-            }
-        #topMenu .menuLink:hover{
-            color : white;
-            background-color:#d3345b;
-
-        }
-        #home{
-            text-decoration-color: white;
-            color : white;
-            background-color: #d3345b;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            float:right;
-            width: 80px;
-            height :30px;
-            border-radius:10px;
-            margin:3px;
-            font-size: 15px;
-            background: var(--naver-green-color);
-            border: solid 1px var(--naver-green-border-color);
-        }
-        #login_button{
-            text-align:center;
-            padding:7px 0;
-            text-decoration: none;
-            display:inline-block;
-            font-size: 15px;
-            margin:2px;
-            cursor:pointer;
-            background-color:rgb(212, 150, 88);
-            border-color: white;
-            color:white;
-            border-radius:10px;
-            float: right; 
-            }
-
-    #div.button
-        {
-            margin: auto;
-            width: 50%;
-        }
-
-    #div.button input
-        {
-            padding: 5px;
-             width: 100%;
-            font-size: 18px;
-        }
 
     </style>
 </head>
@@ -607,7 +270,7 @@
 <div class="main-container">
 	<div class="main-wrap">
         <br>
-        <h1> Health Care Service </h1>
+        <h1> Health Care Service </h1><br>
 
             <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
             <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
@@ -633,28 +296,81 @@
                     <h3> Please input menu name you want to know about in details.  </h3>
                 
             </section>
-            
             <section class="login-input-section-wrap">
                 <div class="login-input-wrap">	
-            
-                    <p><input placeholder="Search the menu" type="text" name="name" id="name"></input></p>
-                
+                    <input placeholder="Search the menu" type="text" id="search_menu"></input>
                 </div>
             </section>
             <section class="Easy-sgin-in-wrap">
                 <ul class="login-button-wrap">
-                    </li><p><button type="submit">Result</button></p>
+                    </li><button type='submit'>Result</button>
                 </ul>
             </section>
         </form>
         <br>
         <br>
         <br>
-        
+        <form method='post' action="food_info_result.php">
+            <section class="login-input-section-wrap">
+                <h2> You can insert new menu into our db! Try it! </h2> 
+            </section>
+            <section class="login-input-section-wrap">
+                <div class="login-input-wrap">	
+                    <input placeholder="Input menu name" type="text" id="menu_name"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's type (ex. 육류/생선류)" type="text" id="menu_classification"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's serving_size (일회 제공량)" type="text" id="menu_serving_size"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's calorie" type="text" id="menu_kcal"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's protein rate" type="text" id="menu_protein"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's fat rate" type="text" id="menu_fat"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's carbohydrate rate" type="text" id="menu_carbohydrate"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's sugar rate" type="text" id="menu_sugar"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's dietary_fiber" type="text" id="menu_dietary_fiber"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's calcium " type="text" id="menu_calcium "></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's magnesium_fiber" type="text" id="menu_magnesium"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's potassium" type="text" id="menu_potassium"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's sodium" type="text" id="menu_sodium"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input the menu's cholesterol" type="text" id="menu_cholesterol"></input>
+                </div>
+            </section>
+            
+            <section class="Easy-sgin-in-wrap">
+                <ul class="login-button-wrap">
+                    </li><button type='submit'>Insert</button>
+                </ul>
+            </section>
+        </form>
+        <br>
+        <br>
+        <br>
 
     </div>
 </div>
 
 </body>
->>>>>>> fc908f8bcc63b791584e8beac02f95366a1e87e7
 </html>
