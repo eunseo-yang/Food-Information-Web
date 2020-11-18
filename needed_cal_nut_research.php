@@ -76,28 +76,45 @@
         border: solid 1px var(	--border-gray-color );
         background: white;
         font-size: 15px;
-        font-style: solid;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     }
     .password-wrap{
         margin-top: 13px;
-        width:900px;
-        text-align: center;
+    }
+    .Insert-button-wrap input{
+        border: none;
+        width:100px;
+        margin-top: 10px;
+        font-size: 20px;
+        margin-left: 10px;
+        height:30px;
+        float:right;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+
     }
     .login-input-wrap input{
-        border: 1px;
+        border: none;
         width:1000px;
         margin-top: 10px;
         font-size: 20px;
         margin-left: 10px;
         height:30px;
-        border-radius: 10px;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    
+        border-radius: 10px;
     }
     .login-button-wrap {
         padding-top: 13px;
+    }
+    .Insert-button-wrap button{
+        width: 100px;
+        height :48px;
+        font-size: 18px;
+        background: var(--naver-green-color);
+        color: white;
+        border: solid 1px var(--naver-green-border-color);
+
     }
     .login-button-wrap button{
         width: 1000px;
@@ -153,13 +170,6 @@
         text-align: center;
         border-color: #d3345b;
     }
-    p{
-        font-size:25px;
-        font-style:solid;
-        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-
-
 
     h1{
             color:rgb(214, 97, 117);
@@ -194,6 +204,7 @@
             display:inline;
             padding:10px;
             vertical-align: middle;
+
         }
 
         
@@ -221,7 +232,6 @@
         #topMenu .menuLink:hover{
             color : white;
             background-color:#d3345b;
-
 
         }
         #home{
@@ -269,63 +279,55 @@
     </style>
 </head>
 
-
 <body>
 <div class="main-container">
-    <div class="main-wrap">
-    <br>
-    <h1> Health Care Service </h1>
-    <br>
-    <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
-    <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-    <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
-    <br>
-    <br>
-    <br>
-    <nav id="topMenu">
+	<div class="main-wrap">
+        <br>
+        <h1> Health Care Service </h1>
+
+            <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
+            <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
+            <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
+        <br>
+        <br>
+        <br>
+        <nav id="topMenu">
         <ul>
             <li><a class="menuLink" href="food_info.html">Food Information</a></li>
             <li><a class="menuLink" href="food_recipe.html">Food Recipe</a></li>
             <li><a class="menuLink" href="exercise.html">Excercise Calculation</a></li>
             <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
         </ul>
-    </nav>
-    <br>
-    <br>
-    <br>
-    <br>
-    <section class="login-input-section-wrap">
-	
-            <h2> Calculate the nutrients and calories you need today!  </h2>
-            <h3> Please input your today's menu. </h3>
-
-    </section>
-    <br>
-
-    <form method='post' action="needed_cal_nut_research.php">
-        <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <h2> <p2>Input your today's menu. </h2></p2> <br>
-                    <div class="login-input-wrap password-wrap">	
-                        <input type="text" placeholder="Breakfast" name="Breakfast" id="Breakfast">
-                    </div>
-                    <div class="login-input-wrap password-wrap">	
-                        <input type="text" placeholder="Lunch" name="Lunch" id="Lunch">
-                    </div>
-                    <div class="login-input-wrap password-wrap">	
-                        <input type="text" placeholder="Dinner" name="Dinner" id="Dinner">
-                    </div>
-                </div>
-                
-        </section>
-        <br>
-		<section class="Easy-sgin-in-wrap">
-			<ul class="login-button-wrap">
-                </li><button type='submit' >Search</button>
-            </ul>
-        </section>
-    </form>
+        </nav>
+    </div>
 </div>
-</div>
+
 </body>
-</html>
+
+<?php
+	include 'db_info.php';
+
+
+    $a = $_POST['Breakfast'];
+    $b = $_POST['Lunch'];
+    $c = $_POST['Dinner'];
+    
+    $temp1="select kcal from nutrition where name='$a'";
+    $temp2="select kcal from nutrition where name='$b'";
+    $temp3="select kcal from nutrition where name='$c'";
+    $temp4=$temp1+$temp2+$temp3;
+
+    echo "오늘의 총 칼로리 섭취량은";
+    echo "'$temp4'";
+    echo "입니다";
+
+	$check = "insert into today_info(user_id,morning_menu,lunch_menu,dinner_menu) values('','$a','$b','$c')";
+	$result = $mysqli->query($check);
+
+    if($result){
+        echo "정보가 입력되었습니다";
+
+       
+    }
+    else echo "입력이 실패하였습니다";
+?>
