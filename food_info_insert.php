@@ -1,11 +1,12 @@
-<!doctype HTML>
+<!DOCTYPE html>
 <head>
-   <meta charset="UTF-8">
-   <title>Login</title>
-   <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
     <style type = "text/css">
-    :root{
+
+    :root{ 
         --body-background-color:white;
         --font-color: #4e4e4e;
         --border-gray-color :#d3345b;
@@ -36,35 +37,25 @@
         margin-top: 21px;
     }
     .main-container .main-wrap{
-        width:768px;
+        width:1000px;
     
     }
     .main-container .main-wrap .sel-lang-wrap .lang-select
     {
-        width: 96px;
+        width: 1000px;
         height: 30px;
         color: var(--font-color);
         border: solid 1px var(--border-gray-color);
-    }
-    .main-container .main-wrap .logo-wrap{
-        padding-top:55px;
-    }
-    .main-container .main-wrap .logo-wrap img
-    {
-        width: 231px;
-        height: 44px;
     }
     
     .main-container .main-wrap header .sel-lang-wrap{
         display:flex;
         justify-content:flex-end;
     }
-    
-    .main-container .main-wrap header .logo-wrap{
-        display:flex;   
-        flex-direction: column;
-        align-items: center;
+    .password-wrap{
+        margin-top: 13px;
     }
+
     .login-input-section-wrap{
         padding-top: 60px;
         display: flex;
@@ -73,35 +64,50 @@
     }
     
     .login-input-wrap{
-        width: 465px;
-        height :48px;
-        border: solid 1px var(   --border-gray-color );
+        width: 1000px;
+        height :fit-content;
+        margin:3px;
+        padding:5px;
+        border: solid 1px var(	--border-gray-color );
         background: white;
-    }
-    .password-wrap{
-        margin-top: 13px;
+        font-size: 15px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
     }
     .login-input-wrap input{
         border: none;
-        width:430px;
+        width:800px;
         margin-top: 10px;
-        font-size: 14px;
+        font-size: 20px;
         margin-left: 10px;
-        height:30px;
+        height:50px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        border-radius: 10px;
     }
     .login-button-wrap {
         padding-top: 13px;
     }
-    .login-button-wrap button{
-        width: 465px;
-        height :48px;
+    .Insert-button-wrap button{
+        width: 1000px;
+        height :50px;
         font-size: 18px;
         background: var(--naver-green-color);
         color: white;
         border: solid 1px var(--naver-green-border-color);
+
+    }
+    .login-button-wrap button{
+        width: 1000px;
+        height :70px;
+        font-size: 20px;
+        background: var(--naver-green-color);
+        color: white;
+        border: solid 1px var(--naver-green-border-color);
+
     }
     .Easy-sgin-in-wrap{
         text-align: center;
+        width:800px;
     }
     .Easy-sgin-in-wrap .sign-button-list
     {
@@ -114,8 +120,6 @@
     }
 
     .Easy-sgin-in-wrap .sign-button-list li button{
-        width: 465px;
-        height: 56px;
         border: solid 1px var(--border-gray-color);
         text-align: middle;
         align-items: center;
@@ -137,9 +141,9 @@
     
     }
     .Easy-sgin-in-wrap .sign-button-list li{
-       padding-bottom: 10px;
-        padding-left: 15px;
-       font-size: 20px;
+	    padding-bottom: 10px;
+        padding-left: 10px;
+	    font-size: 20px;
         align-items: center;
         text-align: center;
         border-color: #d3345b;
@@ -160,7 +164,7 @@
 
         div.button input
         {
-            padding: 5px;
+            padding: 0px;
             width: 100%;
             font-size: 18px;
         }
@@ -178,6 +182,7 @@
             display:inline;
             padding:10px;
             vertical-align: middle;
+
         }
 
         
@@ -200,10 +205,12 @@
             font-size: 17px;                   
             font-weight: bold;                 
             font-family: "Trebuchet MS", Dotum, Arial;
+
             }
         #topMenu .menuLink:hover{
             color : white;
             background-color:#d3345b;
+
         }
         #home{
             text-decoration-color: white;
@@ -219,61 +226,96 @@
             background: var(--naver-green-color);
             border: solid 1px var(--naver-green-border-color);
         }
+        #login_button{
+            text-align:center;
+            padding:7px 0;
+            text-decoration: none;
+            display:inline-block;
+            font-size: 15px;
+            margin:2px;
+            cursor:pointer;
+            background-color:rgb(212, 150, 88);
+            border-color: white;
+            color:white;
+            border-radius:10px;
+            float: right; 
+            }
+
+    #div.button
+        {
+            margin: auto;
+            width: 50%;
+            height : 50px;
+        }
+
+    #div.button input
+        {
+            padding: 5px;
+            width: 100%;
+            height:50px;
+            font-size: 18px;
+        }
+        .login-input-section-wrap{
+        padding-top: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
     </style>
-    
-
-
 </head>
+
 <body>
-   <div class="main-container">
-      <div class="main-wrap">
-        <header>
-            <h1> Health Care Service </h1>
-        </header>
+<div class="main-container">
+	<div class="main-wrap">
         <br>
-        <br>
-        <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
-        <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-        <button type="button" onclick="location.href='sign_up.php'" id='home'>Sign Up</button>
+        <h1> Health Care Service </h1>
+
+            <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
+            <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
+            <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
         <br>
         <br>
         <br>
         <nav id="topMenu">
-            <ul>
-                <li><a class="menuLink" href="food_info.html">Food Information</a></li>
-                <li><a class="menuLink" href="food_recipe.html">Food Recipe</a></li>
-                <li><a class="menuLink" href="exercise.html">Excercise Calculation</a></li>
-                <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
-            </ul>
+        <ul>
+            <li><a class="menuLink" href="food_info.html">Food Information</a></li>
+            <li><a class="menuLink" href="food_recipe.html">Food Recipe</a></li>
+            <li><a class="menuLink" href="exercise.html">Excercise Calculation</a></li>
+            <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
+        </ul>
         </nav>
-        <br>
-        <br>
-        <br>
-        <br>
+        
+    </div>
+</div>
 
-
-      <section class="login-input-section-wrap">
-        <form action="login_check.php" method="post">
-            <div class="login-input-wrap">  
-                <p><input placeholder="Username" type="text" id="id" name="id"></input></p>
-            </div>
-            <div class="login-input-wrap password-wrap">   
-                <p><input placeholder="Password" type="text" id="pwd" name="pwd"></input></p>
-            </div>
-            <div class="login-button-wrap">
-               <p><button type="submit">Sign in</button></p>
-            </div>
-        </form>
-      </section>
-
-        <br>
-     
-      <section class="Easy-sgin-in-wrap">
-         <h2>Do you want to sign up?</h2>
-         <ul class="login-button-wrap">
-                </li><button type='button' id='signup' onclick="location.href='register.php'">Sign Up</button>
-            </ul>
-      </section>
-      </div>
-   </div>
 </body>
+
+<?php
+    include 'db_info.php';
+    session_start();
+
+
+    $information = $_POST['information'];
+    $item = $_POST['item'];
+	
+
+    $check2 = "UPDATE nutrition set [$item]=$information WHERE name in (SELECT name from user where id= $_SESSION['id']";
+	$result2 = $mysqli->query($check2);
+
+    if($result2!=null){
+        $row = $result2->fetch_array(3);
+        $a=$row['menu'];
+        echo $a;
+
+       
+    }
+    else echo "입력하신 음식을 찾을 수 없습니다";
+
+    $id = "SELECT id from nutrition where name='$name'"; 
+    $check3 = "DELETE FROM nutrition  WHERE num='$id'";
+	$result3 = $mysqli->query($check3);
+
+
+?>

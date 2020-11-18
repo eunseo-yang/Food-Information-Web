@@ -320,6 +320,9 @@
     echo "오늘의 총 칼로리 섭취량은";
     echo "'$temp4'";
     echo "입니다";
+    
+    // $today = "select sum morning_menu lunch_menu dinner_menu"
+
 
 	$check = "insert into today_info(user_id,morning_menu,lunch_menu,dinner_menu) values('','$a','$b','$c')";
 	$result = $mysqli->query($check);

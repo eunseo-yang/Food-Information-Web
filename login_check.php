@@ -9,15 +9,16 @@
 
 	$id = $_POST['id'];
 	$password = $_POST['pwd'];
-	$check = "SELECT * FROM user WHERE u_id = '$id'";
+	$check = "SELECT * FROM user_table WHERE id = '$id'";
 	$result = $mysqli->query($check);
 
-	if(!empty($result) && $result->num_rows == 1){
-		$row = $result->fetch_array(3); #1 is MYSQLI_NUM 2 is equivalent to MYSQLI_ASSOC 3 is MYSQLI_BOTH
-		if($row['password']==$password){
-			$_SESSION['userid'] = $id;
-			if(isset($_SESSION['userid'])){
-				echo "회원가입이 완료되었습니다";
+	if(!empty($result)){
+		$row = mysqli_fetch_array($result);
+		
+		if($row['pwd']==$password){
+			$_SESSION['id'] = $id;
+			if(isset($_SESSION['id'])){
+				echo "로그인이 완료되었습니다";
 				//header("Location: /index.php");
 			}
 			else{

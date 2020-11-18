@@ -269,17 +269,44 @@
 
     </style>
 </head>
+
 <body>
 <div class="main-container">
 <div class="main-wrap">
-<?php
-	include 'db_info.php';
+<div class="main-container">
+<div class="main-wrap">
+    <br>
+    <h1> Health Care Service </h1>
+    <br>
+    <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
+    <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
+    <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
+    <br>
+    <br>
+    <br>
+    <nav id="topMenu">
+        <ul>
+            <li><a class="menuLink" href="food_info.html">Food Information</a></li>
+            <li><a class="menuLink" href="food_recipe.html">Food Recipe</a></li>
+            <li><a class="menuLink" href="exercise.html">Excercise Calculation</a></li>
+            <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+</div>
 
-	$gender = (int)$_POST['gender'];
+<?php
+    include 'db_info.php';
+    
+    $gender = $_POST['gender'];
     $height = (int)$_POST['height'];
-    $weight = (int)$_POST['weight'];
+    $weight = (int)$_POST['weight'];        
     $age = (int)$_POST['age'];
-    $minute = (int)$_POST['minute'];
+    $exercise = $_POST['exercise'];
     $calorie = (int)$_POST['calorie'];
 
     if ($gender == 'Man'){
@@ -289,28 +316,27 @@
         $metabolic = 655+(9.6*$weight)+(1.8+$height)-(4.7*$age);
     }
 
-    $met = $calorie / 5 * 1000 / $weight / $minute;
+    $sqlquery = "SELECT met FROM moderate_intensity WHERE moderate_name = '$exercise'";
+    $result=mysqli_query($mysqli,$sqlquery);
     
+    if(mysqli_num_rows($result)==0){
+        $message = " 해당하는 운동을 찾지 못했습니다.";
+    }
+    else{
+        while($row=mysqli_fetch_assoc($result)){
+            $met = $row['met'];
+        }
+        $time = (float)($calorie / 5 * 1000 / $weight / $met);
+        $time = round($time);
+    }
     
-	$check = "SELECT * FROM moderate_intensity WHERE met = '$met'";
-	$result = $mysqli->query($check);
-
-	if(!empty($result) && $result->num_rows == 1){
-		$row = $result->fetch_array(3); #1 is MYSQLI_NUM 2 is equivalent to MYSQLI_ASSOC 3 is MYSQLI_BOTH
-        
-        while ($row){
-            $a =$row['moderate_name'];
-            $b =$row['met'];
-            echo "'$a'을/를 추천합니다. ";
-            echo "'$b'met을 운동할 수 있습니다.";
-		}
-	}
-	else{
-		echo "No information here. Please input another rate of desired calorie consumption or amount of desired exercise time";
-		//header("location: /login.php");
-	}
-    echo "당신의 기초대사량은 '$metabolic' 입니다.";
+ 
 ?>
+
+<section class="login-input-section-wrap">
+    <h2> 당신의 기초대사량은 <?php echo $metabolic ?>정도 입니다. </h2>
+    <h3> 당신에게는 <?php echo $exercise ?> 운동 <?php echo $time ?>분을 추천합니다. </h3>
+</section>
 
 </div>
 </div>
