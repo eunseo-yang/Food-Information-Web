@@ -32,7 +32,7 @@
    $query = "INSERT INTO user (id,pwd,height,weight,gender,name) VALUES('$id','$pwd','$height','$weight','$gender','$name')";
    $execute = $mysqli->query($query);
    if($execute){
-      echo "회원가입이 성공적으로 완료되었습니다 ";
+      echo "<script>alert 회원가입이 성공적으로 완료되었습니다. '</script>";  
       echo "<script>location.href='http://localhost/main_page.html'</script>";    
    }
    else{
@@ -59,7 +59,7 @@
                     </li><button type='submit'>Update</button>
                 </ul>
             </section>
-        </form>
+</form>
         
         <br>
         <br>

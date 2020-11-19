@@ -285,37 +285,6 @@
             <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
         </ul>
         </nav>
-
-        <form method='post' action="food_info_insert.php">
-            <section class="login-input-section-wrap">
-                <h2>You can insert new menu into our db! Try it!</h2> 
-            </section>
-            <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <input placeholder="Input item you want to update." type="text" id="item" name="item"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input information you want to update." type="text" id="information" name="information"></input>
-                </div>
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='submit'>Update</button>
-                </ul>
-            </section>
-        </form>
-        <br>
-        <br>
-        <br>
-        
-            <section class="login-input-section-wrap">
-                <h2>You can delete this menu in our db! Try it!</h2> 
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='button' onClick="location.href='food_info_delete.php'">Delete</button>
-                </ul>
-            </section>
     </div>
 </div>
 
@@ -331,47 +300,38 @@
    $weight = $_POST['weight'];
    $gender = $_POST['gender'];
 
-    if($result1&&$result2&&$result3&&$result4){
-       echo "음식정보가 입력되었습니다";
-       
-    }
-    else {
-        echo "<script>alert('모든 정보가 다 입력되지 않았습니다. 다시 모두 입력해주세요.');</script>";
-        echo "<script>location.href='http://localhost/food_info.html'</script>";    
-    }
-
     if($id == NULL || $pwd == NULL || $name == NULL || $height == NULL || $weight == NULL || $gender == NULL){
         echo "정보가 빠져있습니다. 모든 정보를 채워주세요";
-        echo "<a href= /register.php>페이지 돌아가기</a>";
+        echo "<script>location.href='http://localhost/register.php'</script>";    
         exit();
      }
-     else{
-        echo "완료되었습니다"."<br>";
-     }
+    else{
+        echo "정상적으로 정보를 채우셨습니다.";
+    }
   
-     $check ="SELECT * FROM user where u_id = '$id'";
+     $check ="SELECT * FROM user WHERE id = '$id'";
      $result = $mysqli->query($check);
      if($result->num_rows == 1){
-        echo "이미 있는 아이디입니다";
-        echo "<a href=/register.php>페이지 돌아가기</a>";
+        echo "<script>alert ('사용할 수 없는 아이디입니다. 다시 입력해주세요.'); </script>";
+        echo "<script>location.href='http://localhost/register.php'</script>";
         exit();
      }
-     else{
-  
+    else{
+        echo "사용 가능한 아이디입니다.";
      }
      $query = "INSERT INTO user (id,pwd,height,weight,gender,name) VALUES('$id','$pwd','$height','$weight','$gender','$name')";
      $execute = $mysqli->query($query);
      if($execute){
-        echo "회원가입이 성공적으로 완료되었습니다 ";
+        echo "<script>alert ('회원가입이 성공적으로 진행되었습니다.'); </script>";
         echo "<script>location.href='http://localhost/main_page.html'</script>";    
      }
      else{
         echo "에러가 발생하였습니다"."<br>";
         echo $mysqli->error;
      }
-  ?>
+    ?>
 
-        <form method="post" action="sign_update">
+        <form method="post" action="sign_update.php">
             <section class="login-input-section-wrap">
                 <div class="login-input-wrap">	
                     <input placeholder="변경하고 싶은 ID를 입력하세요." type="text" id="modify_id" name="modify_id"></input>
@@ -388,7 +348,7 @@
         <br>
         <br>
         <br>
-        <form method="post" action="sign_update">
+        <form method="post" action="sign_delete.php">
             <section class="login-input-section-wrap">
                 <div class="login-input-wrap">	
                     <input placeholder="삭제하고 싶은 ID를 입력하세요." type="text" id="delete_id" name="delete_id"></input>
@@ -403,4 +363,4 @@
             </section>
         </form> 
 
-?>
+

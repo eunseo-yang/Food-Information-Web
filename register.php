@@ -243,7 +243,7 @@
         <br>
         <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
         <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-        <button type="button" onclick="location.href='sign_up.php'" id='home'>Sign Up</button>
+        <button type="button" onclick="location.href='sign_up_eunseo.php'" id='home'>Sign Up</button>
         <br>
         <br>
         <br>
@@ -262,7 +262,7 @@
 	</div>
 	<br>
 	<br>
-	<form action="sign_up.php" method="post">
+	<form action="sign_up_eunseo.php" method="post">
 		<section class="login-input-section-wrap">
             <p> 이름를 입력하세요.</p>
 			<div class="login-input-wrap">  

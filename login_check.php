@@ -9,7 +9,7 @@
 
 	$id = $_POST['id'];
 	$password = $_POST['pwd'];
-	$check = "SELECT * FROM user_table WHERE id = '$id'";
+	$check = "SELECT * FROM user WHERE id = '$id'";
 	$result = $mysqli->query($check);
 
 	if(!empty($result)){

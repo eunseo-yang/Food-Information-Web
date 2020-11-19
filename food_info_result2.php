@@ -322,9 +322,7 @@
 </body>
 
 <?php
-    include 'db_info.php';
-    
-
+	include 'db_info.php';
 
     $menu_name = $_POST['menu_name'];
     $menu_classification = $_POST['menu_classification'];
@@ -341,16 +339,19 @@
     $menu_sodium = $_POST['menu_sodium'];
     $menu_cholesterol = $_POST['menu_cholesterol'];
 
+    $check = "SELECT * FROM nutrition WHERE name = '$menu_name'";
+	$result = $mysqli->query($check);
 
     $check1 = "BEGIN TRANSACTION";
-    $check2 = "INSERT INTO nutrition(name,classification,serving_size,kcal,protein) VALUES('$menu_name','$menu_classification','$menu_serving_size','$menu_kcal','$menu_protein')";
-    $check3 = "INSERT INTO nutrition(fat,carbohydrate,sugar,dietary_fiber,calcium,magnesium,potassium,sodium,cholesterol) VALUES('$menu_fat','$menu_carbohydrate','$menu_sugar','$menu_dietary_fiber','$menu_calcium','$menu_magnesium','$menu_potassium','$menu_sodium','$menu_cholesterol')";
+    $check2 = "INSERT INTO nutrition('name','classification','serving_size','kcal','protein') VALUES('$menu_name','$menu_classification','$menu_serving_size','$menu_kcal','$menu_protein')";
+    $check3 = "INSERT INTO nutrition('fat','carbohydrate','sugar','dietary_fiber','calcium','magnesium','potassium','sodium','cholesterol') VALUES('$menu_fat','$menu_carbohydrate','$menu_sugar','$menu_dietary_fiber','$menu_calcium','$menu_magnesium','$menu_potassium','$menu_sodium','$menu_cholesterol')";
     $check4 = "COMMIT";
     
     $result1 = $mysqli->query($check1);
     $result2 = $mysqli->query($check2);
     $result3 = $mysqli->query($check3);
     $result4 = $mysqli->query($check4);
+
 
     if($result1&&$result2&&$result3&&$result4){
        echo "음식정보가 입력되었습니다";
@@ -359,8 +360,6 @@
     else {
         echo "<script>alert('모든 정보가 다 입력되지 않았습니다. 다시 모두 입력해주세요.');</script>";
         echo "<script>location.href='http://localhost/food_info.html'</script>";    
-    }
-   
-
-
+}
 ?>
+</html>
