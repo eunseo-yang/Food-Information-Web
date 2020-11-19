@@ -6,7 +6,11 @@
 	if(isset($_SESSION['userid'] )){
 		unset($_SESSION['userid']);
 		session_destroy();
-		header("location: index.php");
+		echo"<script>alert('로그아웃 되었습니다');location.href= 'main_page.html';</script>";
+
+
+
+
 		exit();
 	}
 	else{
