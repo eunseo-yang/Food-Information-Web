@@ -286,10 +286,6 @@
         </ul>
         </nav>
 
-        <?php 
-            $sqlquery = "SELECT se"
-        ?>
-
         <form method='post' action="food_info_insert.php">
             <section class="login-input-section-wrap">
                 <h2>You can insert new menu into our db! Try it!</h2> 
@@ -360,7 +356,10 @@
        echo "음식정보가 입력되었습니다";
        
     }
-    else echo "음식정보가 입력될 수 없습니다";
+    else {
+        echo "<script>alert('모든 정보가 다 입력되지 않았습니다. 다시 모두 입력해주세요.');</script>";
+        echo "<script>location.href='http://localhost/food_info.html'</script>";    
+    }
    
 
 

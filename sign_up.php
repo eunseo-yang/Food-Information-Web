@@ -7,8 +7,8 @@
    $height = $_POST['height'];
    $weight = $_POST['weight'];
    $gender = $_POST['gender'];
-   $information = $_POST['information'];
-   $item = $_POST['item'];
+//    $item = $_POST['item'];
+//    $information = $_POST['information'];
 
    if($id == NULL || $pwd == NULL || $name == NULL || $height == NULL || $weight == NULL || $gender == NULL){
       echo "정보가 빠져있습니다. 모든 정보를 채워주세요";
@@ -27,36 +27,18 @@
       exit();
    }
    else{
-      echo "Okay";
+
    }
    $query = "INSERT INTO user (id,pwd,height,weight,gender,name) VALUES('$id','$pwd','$height','$weight','$gender','$name')";
    $execute = $mysqli->query($query);
    if($execute){
       echo "회원가입이 성공적으로 완료되었습니다 ";
-      //header("location: /login.php");
+      echo "<script>location.href='http://localhost/main_page.html'</script>";    
    }
    else{
       echo "에러가 발생하였습니다"."<br>";
       echo $mysqli->error;
    }
-
-   $check2 = "UPDATE nutrition set [$item]=$information WHERE name = '$name'";
-	$result2 = $mysqli->query($check2);
-
-    if($result2!=null){
-        $row = $result2->fetch_array(3);
-        $a=$row['menu'];
-        echo $a;
-
-       
-    }
-    else echo "입력하신 음식을 찾을 수 없습니다";
-
-    $id = "SELECT id from nutrition where name='$name'"; 
-    $check3 = "DELETE FROM nutrition  WHERE num='$id'";
-	$result3 = $mysqli->query($check3);
-
-
 ?>
 
 

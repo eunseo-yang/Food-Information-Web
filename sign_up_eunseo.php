@@ -265,7 +265,6 @@
 
     </style>
 </head>
-
 <body>
 <div class="main-container">
 	<div class="main-wrap">
@@ -286,36 +285,122 @@
             <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
         </ul>
         </nav>
+
+        <form method='post' action="food_info_insert.php">
+            <section class="login-input-section-wrap">
+                <h2>You can insert new menu into our db! Try it!</h2> 
+            </section>
+            <section class="login-input-section-wrap">
+                <div class="login-input-wrap">	
+                    <input placeholder="Input item you want to update." type="text" id="item" name="item"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input information you want to update." type="text" id="information" name="information"></input>
+                </div>
+            </section>
+            <section class="Easy-sgin-in-wrap">
+                <ul class="login-button-wrap">
+                    </li><button type='submit'>Update</button>
+                </ul>
+            </section>
+        </form>
+        <br>
+        <br>
+        <br>
         
+            <section class="login-input-section-wrap">
+                <h2>You can delete this menu in our db! Try it!</h2> 
+            </section>
+            <section class="Easy-sgin-in-wrap">
+                <ul class="login-button-wrap">
+                    </li><button type='button' onClick="location.href='food_info_delete.php'">Delete</button>
+                </ul>
+            </section>
     </div>
 </div>
 
 </body>
 
 <?php
-    include 'db_info.php';
-    session_start();
+   include "db_info.php";
 
+   $id = $_POST['id'];
+   $pwd = $_POST['pwd'];
+   $name = $_POST['name'];
+   $height = $_POST['height'];
+   $weight = $_POST['weight'];
+   $gender = $_POST['gender'];
 
-    $information = $_POST['information'];
-    $item = $_POST['item'];
-	
-
-    $check2 = "UPDATE nutrition set [$item]=$information WHERE name in (SELECT name from user where id= $_SESSION['id']";
-	$result2 = $mysqli->query($check2);
-
-    if($result2!=null){
-        $row = $result2->fetch_array(3);
-        $a=$row['menu'];
-        echo $a;
-
+    if($result1&&$result2&&$result3&&$result4){
+       echo "음식정보가 입력되었습니다";
        
     }
-    else "<script>alert('모든 정보가 다 입력되지 않았습니다. 다시 모두 입력해주세요.');</script>";
+    else {
+        echo "<script>alert('모든 정보가 다 입력되지 않았습니다. 다시 모두 입력해주세요.');</script>";
+        echo "<script>location.href='http://localhost/food_info.html'</script>";    
+    }
 
-    $id = "SELECT id from nutrition where name='$name'"; 
-    $check3 = "DELETE FROM nutrition  WHERE num='$id'";
-	$result3 = $mysqli->query($check3);
+    if($id == NULL || $pwd == NULL || $name == NULL || $height == NULL || $weight == NULL || $gender == NULL){
+        echo "정보가 빠져있습니다. 모든 정보를 채워주세요";
+        echo "<a href= /register.php>페이지 돌아가기</a>";
+        exit();
+     }
+     else{
+        echo "완료되었습니다"."<br>";
+     }
+  
+     $check ="SELECT * FROM user where u_id = '$id'";
+     $result = $mysqli->query($check);
+     if($result->num_rows == 1){
+        echo "이미 있는 아이디입니다";
+        echo "<a href=/register.php>페이지 돌아가기</a>";
+        exit();
+     }
+     else{
+  
+     }
+     $query = "INSERT INTO user (id,pwd,height,weight,gender,name) VALUES('$id','$pwd','$height','$weight','$gender','$name')";
+     $execute = $mysqli->query($query);
+     if($execute){
+        echo "회원가입이 성공적으로 완료되었습니다 ";
+        echo "<script>location.href='http://localhost/main_page.html'</script>";    
+     }
+     else{
+        echo "에러가 발생하였습니다"."<br>";
+        echo $mysqli->error;
+     }
+  ?>
 
+        <form method="post" action="sign_update">
+            <section class="login-input-section-wrap">
+                <div class="login-input-wrap">	
+                    <input placeholder="변경하고 싶은 ID를 입력하세요." type="text" id="modify_id" name="modify_id"></input>
+                </div>
+                <div class="login-input-wrap">	
+                <input placeholder="변경하고 싶은 PWD를 입력하세요." type="text" id="modify_pwd" name="modify_pwd"></input></div>
+            </section>
+            <section class="Easy-sgin-in-wrap">
+                <ul class="login-button-wrap">
+                    </li><button type='submit'>Update</button>
+                </ul>
+            </section>
+        </form> 
+        <br>
+        <br>
+        <br>
+        <form method="post" action="sign_update">
+            <section class="login-input-section-wrap">
+                <div class="login-input-wrap">	
+                    <input placeholder="삭제하고 싶은 ID를 입력하세요." type="text" id="delete_id" name="delete_id"></input>
+                </div>
+                <div class="login-input-wrap">	
+                <input placeholder="PWD를 입력하세요." type="text" id="delete_pwd" name="delete_pwd"></input></div>
+            </section>
+            <section class="Easy-sgin-in-wrap">
+                <ul class="login-button-wrap">
+                    </li><button type='submit'>Delete</button>
+                </ul>
+            </section>
+        </form> 
 
 ?>

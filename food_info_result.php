@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <head>
     <meta charset="UTF-8">
 	<title>Login</title>
@@ -47,13 +47,18 @@
         color: var(--font-color);
         border: solid 1px var(--border-gray-color);
     }
+    .main-container .main-wrap .logo-wrap{
+        padding-top:55px;
+    }
+    .main-container .main-wrap .logo-wrap img
+    {
+        width: 231px;
+        height: 44px;
+    }
     
     .main-container .main-wrap header .sel-lang-wrap{
         display:flex;
         justify-content:flex-end;
-    }
-    .password-wrap{
-        margin-top: 13px;
     }
 
     .login-input-section-wrap{
@@ -71,35 +76,31 @@
         border: solid 1px var(	--border-gray-color );
         background: white;
         font-size: 15px;
+        font-style: solid;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     }
+    .password-wrap{
+        margin-top: 13px;
+    }
     .login-input-wrap input{
-        border: none;
+        border: 1px;
         width:800px;
         margin-top: 10px;
         font-size: 20px;
         margin-left: 10px;
-        height:50px;
+        height:30px;
+
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        border-radius: 10px;
+    
     }
     .login-button-wrap {
         padding-top: 13px;
     }
-    .Insert-button-wrap button{
-        width: 1000px;
-        height :50px;
-        font-size: 18px;
-        background: var(--naver-green-color);
-        color: white;
-        border: solid 1px var(--naver-green-border-color);
-
-    }
     .login-button-wrap button{
         width: 1000px;
-        height :70px;
-        font-size: 20px;
+        height :48px;
+        font-size: 18px;
         background: var(--naver-green-color);
         color: white;
         border: solid 1px var(--naver-green-border-color);
@@ -107,7 +108,7 @@
     }
     .Easy-sgin-in-wrap{
         text-align: center;
-        width:800px;
+        width:1000px;
     }
     .Easy-sgin-in-wrap .sign-button-list
     {
@@ -120,6 +121,8 @@
     }
 
     .Easy-sgin-in-wrap .sign-button-list li button{
+        width: 465px;
+        height: 56px;
         border: solid 1px var(--border-gray-color);
         text-align: middle;
         align-items: center;
@@ -142,11 +145,21 @@
     }
     .Easy-sgin-in-wrap .sign-button-list li{
 	    padding-bottom: 10px;
-        padding-left: 10px;
+        padding-left: 15px;
 	    font-size: 20px;
         align-items: center;
         text-align: center;
         border-color: #d3345b;
+    }
+    p{
+        font-size:25px;
+        font-style:solid;
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    p2{
+        font-size:20px;
+        font-family: 'Arial Narrow Bold', sans-serif;
+    
     }
 
     h1{
@@ -164,7 +177,7 @@
 
         div.button input
         {
-            padding: 0px;
+            padding: 5px;
             width: 100%;
             font-size: 18px;
         }
@@ -245,104 +258,78 @@
         {
             margin: auto;
             width: 50%;
-            height : 50px;
         }
 
     #div.button input
         {
             padding: 5px;
-            width: 100%;
-            height:50px;
+             width: 100%;
             font-size: 18px;
         }
-        .login-input-section-wrap{
-        padding-top: 60px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
 
     </style>
 </head>
+
 <body>
 <div class="main-container">
-	<div class="main-wrap">
-        <br>
-        <h1> Health Care Service </h1>
-
-            <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
-            <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-            <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
-        <br>
-        <br>
-        <br>
-        <nav id="topMenu">
+<div class="main-wrap">
+<div class="main-container">
+<div class="main-wrap">
+    <br>
+    <h1> Health Care Service </h1>
+    <br>
+    <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
+    <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
+    <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
+    <br>
+    <br>
+    <br>
+    <nav id="topMenu">
         <ul>
             <li><a class="menuLink" href="food_info.html">Food Information</a></li>
             <li><a class="menuLink" href="food_recipe_list.php">Food Recipe</a></li>
             <li><a class="menuLink" href="exercise.html">Excercise Calculation</a></li>
             <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
         </ul>
-        </nav>
-
-        <?php 
-            $sqlquery = "SELECT se"
-        ?>
-
-        <form method='post' action="food_info_insert.php">
-            <section class="login-input-section-wrap">
-                <h2>You can insert new menu into our db! Try it!</h2> 
-            </section>
-            <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <input placeholder="Input item you want to update." type="text" id="item" name="item"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input information you want to update." type="text" id="information" name="information"></input>
-                </div>
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='submit'>Update</button>
-                </ul>
-            </section>
-        </form>
-        <br>
-        <br>
-        <br>
-        
-            <section class="login-input-section-wrap">
-                <h2>You can delete this menu in our db! Try it!</h2> 
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='button' onClick="location.href='food_info_delete.php'">Delete</button>
-                </ul>
-            </section>
-    </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
-
-</body>
+</div>
 
 <?php
     include 'db_info.php';
-
-    $name = $_POST['name'];
     
-	$check = "SELECT * FROM Fooddb.recipe WHERE RCP_SEQ = '$name'";
-	$result = $mysqli->query($check);
-
-    if($result!=null){
-        $row = mysqli_fetch_array($result);
-        $a=$row['menu'];
-        echo $a;
-
-       
+    $name = $_POST['name'];
+    $sqlquery = "SELECT classification,serving_size,kcal,protein,fat FROM nutrition WHERE name = '$name'";
+    $result=mysqli_query($mysqli,$sqlquery);
+    
+    if(mysqli_num_rows($result)==0){
+        $message = " 해당하는 음식 정보를 제공할 수 없습니다..";
     }
-    else echo "입력하신 음식을 찾을 수 없습니다";
-   
-
-
+    else{
+        while($row=mysqli_fetch_assoc($result)){
+            $classfication = $row['classification'];
+            $serving_size = $row['serving_size'];
+            $kcal = $row['kcal'];
+            $protein = $row['protein'];
+            $fat = $row['fat'];
+        }
+    }
+    
+ 
 ?>
+<br> <br>
+<section class="login-input-section-wrap">
+    <h2> <?php echo $name ?>은 <?php echo $classfication ?>류의 음식입니다.</h2>
+    <h3> 1회 제공량은 <?php echo $serving_size ?>정도 이며, 1회 제공량당<?php echo $kcal ?>kcal이고, 단백질은 <?php echo $protein ?>, 지방은 <?php echo $fat ?>만큼 함량되어있다.</h3>
+</section>
+
+</div>
+</div>
+</body>
+</html>
+
 
