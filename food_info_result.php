@@ -67,6 +67,7 @@
         flex-direction: column;
         align-items: center;
     }
+
     
     .login-input-wrap{
         width: 1000px;
@@ -318,6 +319,35 @@
             $fat = $row['fat'];
         }
     }
+
+    $check1 = "SELECT classification, avg(kcal) as 평균칼로리 FROM nutrition WHERE name='$name' GROUP BY classification WITH ROLLUP";
+    $check2 = "SELECT classification, protein, percent_rank() over (order by protein) as pct_rank from nutrition";
+    $check3 = "SELECT classification, fat, cume_dist() over(order by fat) as cume_dist from nutrition";
+    $result1 = $mysqli->query($check1);
+    $result2 = $mysqli->query($check2);
+    $result3 = $mysqli->query($check3);
+
+
+
+    
+
+    if($result1&&$result2&&$result3){
+        $row1 = mysqli_fetch_array($result1);
+        $a1=$row1['classification'];
+        $b1=$row1['평균칼로리'];
+       
+        $row2 = mysqli_fetch_array($result2);
+        $a2=$row2['classification'];
+        $b2=$row2['pct_rank'];
+
+        $row3 = mysqli_fetch_array($result3);
+        $a3=$row3['classification'];
+        $b3=$row3['cume_dist'];
+      
+
+    }
+    else $message = " 해당하는 음식 정보를 제공할 수 없습니다..";
+
     
  
 ?>
@@ -325,11 +355,14 @@
 <section class="login-input-section-wrap">
     <h2> <?php echo $name ?>은 <?php echo $classfication ?>류의 음식입니다.</h2>
     <h3> 1회 제공량은 <?php echo $serving_size ?>정도 이며, 1회 제공량당<?php echo $kcal ?>kcal이고, 단백질은 <?php echo $protein ?>, 지방은 <?php echo $fat ?>만큼 함량되어있다.</h3>
+    <h4> 가장 작은 단백질을 함유하고 있는 음식 종류는 <?php echo $a2 ?>이고, 함유량은<?php echo $b2 ?>g입니다.</h4>
+    <h5> 가장 작은 지방을 함유하고 있는 음식 종류는 <?php echo $a3 ?>이고, 함유량은<?php echo $b3 ?>g입니다.</h5>
 </section>
+
+
 
 </div>
 </div>
 </body>
 </html>
-
 
