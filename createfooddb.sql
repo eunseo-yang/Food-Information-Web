@@ -4,12 +4,12 @@
 
 /* nutrition table create */
 
-CREATE TABLE nutrition ( num int(10) DEFAULT NULL primary key, name varchar(20) NOT NULL,
- classification varchar(20) NOT NULL, serving_size int(5) NOT NULL,
- kcal float NOT NULL, protein float NOT NULL, fat float NOT NULL, 
-carbohydrate float NOT NULL, sugar float NOT NULL, dietary_fiber float NOT NULL,
- calcium float NOT NULL, magnesium float NOT NULL, potassium float NOT NULL, 
-sodium float NOT NULL, cholesterol float NOT NULL );
+CREATE TABLE nutrition ( num int(10) DEFAULT NULL primary key, name varchar(20) ,
+ classification varchar(20) , serving_size int(5) ,
+ kcal float , protein float , fat float , 
+carbohydrate float , sugar float, dietary_fiber float,
+ calcium float, magnesium float, potassium float, 
+sodium float, cholesterol float );
 
 
 
