@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <head>
     <meta charset="UTF-8">
 	<title>Login</title>
@@ -273,6 +273,8 @@
 <body>
 <div class="main-container">
 <div class="main-wrap">
+<div class="main-container">
+<div class="main-wrap">
     <br>
     <h1> Health Care Service </h1>
     <br>
@@ -294,68 +296,64 @@
     <br>
     <br>
     <br>
-
-    <section class="login-input-section-wrap">
-
-            <h2> Determine the amount of exercise you need! </h2>
-            <h3> Please input your physical information and desired calorie burn. </h3>
-
-    </section>
-
-    <br>
-
-    <form method='post' action="exercise_cal.php">
-        <section class="login-input-section-wrap">
-                <div class="login-input-wrap password-wrap">	
-                        <input type="text" placeholder="gender 남/여" id="gender" name="gender"/> 
-                </div>
-                <div class="login-input-wrap password-wrap">	
-                    <input type="text" placeholder="height" id="height" name="height"/> cm
-                </div>
-                <div class="login-input-wrap password-wrap">	
-                    <input type="text" placeholder="weight" id="weight", name="weight"/> kg
-                </div>
-                <div class="login-input-wrap password-wrap">	
-                    <input type="text" placeholder="age" id="age", name="age"/> 세
-                </div>
-                <div class="login-input-wrap password-wrap">	
-                    <input type="text" placeholder="desired exercise" id="exercise", name="exercise"/> exercise
-                </div>
-                <div class="login-input-wrap password-wrap">	
-                    <input type="text" placeholder="desired calorie consumption" id="calorie", name="calorie"/> kcal
-                </div>
-        </section>
-        <br>
-		<section class="Easy-sgin-in-wrap">
-			<ul class="login-button-wrap">
-                </li><button type='submit' >Search</button>
-            </ul>
-        </section>
-        <Br><Br><Br>
-    </form>
-
-    <form method='post' action="exercise_insert.php">
-            <section class="Easy-sgin-in-wrap">
-                <ul class="Insert-button-wrap">
-                    <h2 >Or you can add exercise information that is not here! </h2>
-                </ul>
-            </section>
-            <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <input placeholder="Add exercise type!" type="text" name = "add_name" id="add_name">
-                </div>
-                <div class="login-input-wrap">
-                    <input placeholder="Add exercise Met!" type="text" name = "add_met" id="add_met">
-                </div>
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                </li><button type='submit'>Insert</button>
-                </ul>
-            </section>
-    </form>
-    </div>
+</div>
 </div>
 
+<?php
+    include 'db_info.php';
+    
+    $add_name = $_POST['add_name'];
+    $add_met = (float)$_POST['add_met'];
+
+    $sql = "SELECT * FROM moderate_intensity WHERE moderate_name='$add_name'";
+    $result = mysqli_query($mysqli, $sql);
+    $count = mysqli_num_rows($result);
+ 
+    if($count == 0){
+        if ($add_met>=0.0 && $add_met<=2.0){
+            $sqlquery = "INSERT INTO light_intensity (`light_index`, `light_name`, `met`) VALUES ('0','$add_name','$add_met')";
+            $flag = $add_name;
+            echo "<script>alert('낮은 난이도 항목에 {$flag}이/가 추가되었습니다.');</script>";
+            $result = mysqli_query($mysqli, $sqlquery);
+            if($result === false){
+                    echo mysqli_error($conn);
+            }
+            
+        }
+        if ($add_met>=3.0 && $add_met<=5.0){
+            $sqlquery = "INSERT INTO moderate_intensity (`moderate_index`, `moderate_name`, `met`) VALUES ('0','$add_name','$add_met')";
+            $flag = $add_name;
+            echo "<script>alert('중간 난이도 항목에 {$flag}이/가 추가되었습니다.');</script>";
+            $result = mysqli_query($mysqli, $sqlquery);
+            if($result === false){
+                    echo mysqli_error($conn);
+            }
+        }        
+        if ($add_met>=5.0 && $add_met<=20.0){
+            $sqlquery = "INSERT INTO vigorous_intensity (`vigorous_index`, `vigorous_name`, `met`) VALUES ('0','$add_name','$add_met')";
+            $flag = $add_name;
+            echo "<script>alert('높은 난이도 항목에 {$flag}이/가 추가되었습니다.');</script>";
+            $result = mysqli_query($mysqli, $sqlquery);
+            if($result === false){
+                    echo mysqli_error($conn);
+            }
+        }
+        
+        echo "<script>location.href='http://localhost/exercise.html'</script>";
+    }
+    else{
+        $flag = $add_name;
+        echo "<script>alert('{$flag}는 이미 제공되는 운동 정보입니다..');</script>";
+        echo "<script>location.href='http://localhost/exercise.html'</script>";
+    }
+    
+ 
+?>
+
+
+</div>
+</div>
 </body>
 </html>
+
+
