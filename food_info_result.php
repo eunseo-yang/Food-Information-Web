@@ -311,7 +311,6 @@
 
     
 
-
         <form method='post' action="food_info_insert.php">
             <section class="login-input-section-wrap">
                 <h2>You can insert new menu into our db! Try it!</h2> 
@@ -344,7 +343,5 @@
             </section>
     </div>
 </div>
-
-
 </body>
 </html>
