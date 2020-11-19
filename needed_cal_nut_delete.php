@@ -1,7 +1,7 @@
 <!doctype HTML>
 <head>
     <meta charset="UTF-8">
-	<title>Login</title>
+	<title>Team13</title>
 	<link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
     <style type = "text/css">
