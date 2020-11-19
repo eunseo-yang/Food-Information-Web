@@ -87,7 +87,7 @@
     }
     .login-input-wrap input{
         border: 1px;
-        width:1000px;
+        width:850px;
         margin-top: 10px;
         font-size: 20px;
         margin-left: 10px;
@@ -123,7 +123,7 @@
     }
 
     .Easy-sgin-in-wrap .sign-button-list li button{
-        width: 465px;
+        width: 400px;
         height: 56px;
         border: solid 1px var(--border-gray-color);
         text-align: middle;
@@ -302,18 +302,21 @@
     </section>
     <br>
 
-    <form method='post' action="needed_cal_nut_research.php">
+    <form method='post' action="needed_cal_nut_insert.php">
         <section class="login-input-section-wrap">
                 <div class="login-input-wrap">	
                     <h2> <p2>Input your today's menu. </h2></p2> <br>
                     <div class="login-input-wrap password-wrap">	
-                        <input type="text" placeholder="Breakfast" name="Breakfast" id="Breakfast">
+                        <input type="text" placeholder="Date">
                     </div>
                     <div class="login-input-wrap password-wrap">	
-                        <input type="text" placeholder="Lunch" name="Lunch" id="Lunch">
+                        <input type="text" placeholder="Breakfast">
                     </div>
                     <div class="login-input-wrap password-wrap">	
-                        <input type="text" placeholder="Dinner" name="Dinner" id="Dinner">
+                        <input type="text" placeholder="Lunch">
+                    </div>
+                    <div class="login-input-wrap password-wrap">	
+                        <input type="text" placeholder="Dinner">
                     </div>
                 </div>
                 
@@ -321,10 +324,19 @@
         <br>
 		<section class="Easy-sgin-in-wrap">
 			<ul class="login-button-wrap">
-                </li><button type='submit' >Search</button>
+                </li><button type='submit' value='search'>Insert</button>
             </ul>
         </section>
     </form>
+    <br><br>
+    <section class="Easy-sgin-in-wrap">
+        <h2> Do you want to update information? Try it! </h2>
+        <ul class="login-button-wrap">
+            </li><button type='submit' value='update' onclick="location.href='needed_cal_nut_update.html'")>Update</button>
+        </ul>
+    </section>
+
+  
 </div>
 </div>
 </body>
