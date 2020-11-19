@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <head>
     <meta charset="UTF-8">
 	<title>Login</title>
@@ -47,13 +47,18 @@
         color: var(--font-color);
         border: solid 1px var(--border-gray-color);
     }
+    .main-container .main-wrap .logo-wrap{
+        padding-top:55px;
+    }
+    .main-container .main-wrap .logo-wrap img
+    {
+        width: 231px;
+        height: 44px;
+    }
     
     .main-container .main-wrap header .sel-lang-wrap{
         display:flex;
         justify-content:flex-end;
-    }
-    .password-wrap{
-        margin-top: 13px;
     }
 
     .login-input-section-wrap{
@@ -71,35 +76,31 @@
         border: solid 1px var(	--border-gray-color );
         background: white;
         font-size: 15px;
+        font-style: solid;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     }
+    .password-wrap{
+        margin-top: 13px;
+    }
     .login-input-wrap input{
-        border: none;
+        border: 1px;
         width:800px;
         margin-top: 10px;
         font-size: 20px;
         margin-left: 10px;
-        height:50px;
+        height:30px;
+
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        border-radius: 10px;
+    
     }
     .login-button-wrap {
         padding-top: 13px;
     }
-    .Insert-button-wrap button{
-        width: 1000px;
-        height :50px;
-        font-size: 18px;
-        background: var(--naver-green-color);
-        color: white;
-        border: solid 1px var(--naver-green-border-color);
-
-    }
     .login-button-wrap button{
         width: 1000px;
-        height :70px;
-        font-size: 20px;
+        height :48px;
+        font-size: 18px;
         background: var(--naver-green-color);
         color: white;
         border: solid 1px var(--naver-green-border-color);
@@ -107,7 +108,7 @@
     }
     .Easy-sgin-in-wrap{
         text-align: center;
-        width:800px;
+        width:1000px;
     }
     .Easy-sgin-in-wrap .sign-button-list
     {
@@ -120,6 +121,8 @@
     }
 
     .Easy-sgin-in-wrap .sign-button-list li button{
+        width: 465px;
+        height: 56px;
         border: solid 1px var(--border-gray-color);
         text-align: middle;
         align-items: center;
@@ -142,11 +145,21 @@
     }
     .Easy-sgin-in-wrap .sign-button-list li{
 	    padding-bottom: 10px;
-        padding-left: 10px;
+        padding-left: 15px;
 	    font-size: 20px;
         align-items: center;
         text-align: center;
         border-color: #d3345b;
+    }
+    p{
+        font-size:25px;
+        font-style:solid;
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    p2{
+        font-size:20px;
+        font-family: 'Arial Narrow Bold', sans-serif;
+    
     }
 
     h1{
@@ -164,7 +177,7 @@
 
         div.button input
         {
-            padding: 0px;
+            padding: 5px;
             width: 100%;
             font-size: 18px;
         }
@@ -245,128 +258,77 @@
         {
             margin: auto;
             width: 50%;
-            height : 50px;
         }
 
     #div.button input
         {
             padding: 5px;
-            width: 100%;
-            height:50px;
+             width: 100%;
             font-size: 18px;
         }
-        .login-input-section-wrap{
-        padding-top: 60px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
 
     </style>
 </head>
+
 <body>
 <div class="main-container">
-	<div class="main-wrap">
-        <br>
-        <h1> Health Care Service </h1>
-
-            <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
-            <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-            <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
-        <br>
-        <br>
-        <br>
-        <nav id="topMenu">
+<div class="main-wrap">
+<div class="main-container">
+<div class="main-wrap">
+    <br>
+    <h1> Health Care Service </h1>
+    <br>
+    <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
+    <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
+    <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
+    <br>
+    <br>
+    <br>
+    <nav id="topMenu">
         <ul>
             <li><a class="menuLink" href="food_info.html">Food Information</a></li>
             <li><a class="menuLink" href="food_recipe_list.php">Food Recipe</a></li>
             <li><a class="menuLink" href="exercise.html">Excercise Calculation</a></li>
             <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
         </ul>
-        </nav>
-    </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
 </div>
 
-</body>
-
 <?php
-   include "db_info.php";
+    include 'db_info.php';
+    
+    $firt_id = $_POST['firt_id'];
+    $first_pwd = $_POST['first_pwd'];
+    $modify_id = $_POST['modify_id'];
+    $modify_pwd = $_POST['modify_pwd'];
 
-   $id = $_POST['id'];
-   $pwd = $_POST['pwd'];
-   $name = $_POST['name'];
-   $height = $_POST['height'];
-   $weight = $_POST['weight'];
-   $gender = $_POST['gender'];
-
-    if($id == NULL || $pwd == NULL || $name == NULL || $height == NULL || $weight == NULL || $gender == NULL){
-        echo "정보가 빠져있습니다. 모든 정보를 채워주세요";
-        echo "<script>location.href='http://localhost/register.php'</script>";    
-        exit();
-     }
-    else{
-        echo "정상적으로 정보를 채우셨습니다.";
+    $sql = "SELECT * FROM user WHERE id='$firt_id'";
+    $result = mysqli_query($mysqli, $sql);
+    
+    if($result === false){
+        echo mysqli_error($mysqli);
     }
+    $sqlquery = "UPDATE user SET id='$modify_id',pwd='$modify_pwd' WHERE id='$id'";
+    echo "<script>alert('업데이트 완료되었습니다.');</script>";
+    echo "<script>location.href='http://localhost/register.php'</script>";
+    $result = mysqli_query($mysqli, $sqlquery);
+    if($result == false){
+            echo mysqli_error($conn);
+            echo "<script>location.href='http://localhost/register.php'</script>";
+     }
   
-     $check ="SELECT * FROM user WHERE id = '$id'";
-     $result = $mysqli->query($check);
-     if($result->num_rows == 1){
-        echo "<script>alert ('사용할 수 없는 아이디입니다. 다시 입력해주세요.'); </script>";
-        echo "<script>location.href='http://localhost/register.php'</script>";
-        exit();
-     }
-    else{
-        echo "사용 가능한 아이디입니다.";
-     }
-     $query = "INSERT INTO user (id,pwd,height,weight,gender,name) VALUES('$id','$pwd','$height','$weight','$gender','$name')";
-     $execute = $mysqli->query($query);
-     if($execute){
-        echo "<script>alert ('회원가입이 성공적으로 진행되었습니다.'); </script>";
-        echo "<script>location.href='http://localhost/main_page.html'</script>";    
-     }
-     else{
-        echo "에러가 발생하였습니다"."<br>";
-        echo $mysqli->error;
-     }
-    ?>
+ 
+?>
 
-        <form method="post" action="sign_update.php">
-            <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <input placeholder="원래 ID를 입력하세요." type="text" id="first_id" name="first_id"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="원래 PWD를 입력하세요." type="text" id="first_pwd" name="first_pwd"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="변경하고 싶은 ID를 입력하세요." type="text" id="modify_id" name="modify_id"></input>
-                </div>
-                <div class="login-input-wrap">	
-                <input placeholder="변경하고 싶은 PWD를 입력하세요." type="text" id="modify_pwd" name="modify_pwd"></input></div>
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='submit'>Update</button>
-                </ul>
-            </section>
-        </form> 
-        <br>
-        <br>
-        <br>
-        <form method="post" action="sign_delete.php">
-            <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <input placeholder="삭제하고 싶은 ID를 입력하세요." type="text" id="delete_id" name="delete_id"></input>
-                </div>
-                <div class="login-input-wrap">	
-                <input placeholder="PWD를 입력하세요." type="text" id="delete_pwd" name="delete_pwd"></input></div>
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='submit'>Delete</button>
-                </ul>
-            </section>
-        </form> 
+
+</div>
+</div>
+</body>
+</html>
 
 
