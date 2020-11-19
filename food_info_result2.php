@@ -265,12 +265,11 @@
 
     </style>
 </head>
-
 <body>
 <div class="main-container">
 	<div class="main-wrap">
         <br>
-        <h1> Health Care Service </h1><br>
+        <h1> Health Care Service </h1>
 
             <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
             <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
@@ -286,91 +285,83 @@
             <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
         </ul>
         </nav>
-        <br>
-        <br>
-        <br>
-        <br>
-        <form method='post' action="food_info_result.php">
-            <section class="login-input-section-wrap">
-                    <h2> Find the menu information! </h2>
-                    <h3> Please input menu name you want to know about in details.  </h3>
-                
-            </section>
-            <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <input placeholder="Search the menu" type="text" id="name" name="name"></input>
-                </div>
-            </section>
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='submit'>Result</button>
-                </ul>
-            </section>
-        </form>
-        <br>
-        <br>
-        <br>
-        <form method='post' action="food_info_result2.php">
-            <section class="login-input-section-wrap">
-                <h2> You can insert new menu into our db! Try it! </h2> 
-            </section>
-            <section class="login-input-section-wrap">
-                <div class="login-input-wrap">	
-                    <input placeholder="Input menu name" type="text" id="menu_name" name="menu_name"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's type (ex. 육류/생선류)" type="text" id="menu_classification" name="menu_classification"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's serving_size (일회 제공량)" type="text" name="menu_serving_size"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's calorie" type="text" name="menu_kcal"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's protein rate" type="text" name="menu_protein"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's fat rate" type="text" name="menu_fat"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's carbohydrate rate" type="text" name="menu_carbohydrate"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's sugar rate" type="text" name="menu_sugar"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's dietary_fiber" type="text" name="menu_dietary_fiber"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's calcium " type="text" name="menu_calcium"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's magnesium_fiber" type="text" name="menu_magnesium"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's potassium" type="text" name="menu_potassium"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's sodium" type="text" name="menu_sodium"></input>
-                </div>
-                <div class="login-input-wrap">	
-                    <input placeholder="Input the menu's cholesterol" type="text" name="menu_cholesterol"></input>
-                </div>
-            </section>
-            
-            <section class="Easy-sgin-in-wrap">
-                <ul class="login-button-wrap">
-                    </li><button type='submit'>Insert</button>
-                </ul>
-            </section>
-        </form>
-        <br>
-        <br>
-        <br>
 
+        <?php 
+            $sqlquery = "SELECT se"
+        ?>
+
+        <form method='post' action="food_info_insert.php">
+            <section class="login-input-section-wrap">
+                <h2>You can insert new menu into our db! Try it!</h2> 
+            </section>
+            <section class="login-input-section-wrap">
+                <div class="login-input-wrap">	
+                    <input placeholder="Input item you want to update." type="text" id="item" name="item"></input>
+                </div>
+                <div class="login-input-wrap">	
+                    <input placeholder="Input information you want to update." type="text" id="information" name="information"></input>
+                </div>
+            </section>
+            <section class="Easy-sgin-in-wrap">
+                <ul class="login-button-wrap">
+                    </li><button type='submit'>Update</button>
+                </ul>
+            </section>
+        </form>
+        <br>
+        <br>
+        <br>
+        
+            <section class="login-input-section-wrap">
+                <h2>You can delete this menu in our db! Try it!</h2> 
+            </section>
+            <section class="Easy-sgin-in-wrap">
+                <ul class="login-button-wrap">
+                    </li><button type='button' onClick="location.href='food_info_delete.php'">Delete</button>
+                </ul>
+            </section>
     </div>
 </div>
 
 </body>
-</html>
+
+<?php
+    include 'db_info.php';
+    
+
+
+    $menu_name = $_POST['menu_name'];
+    $menu_classification = $_POST['menu_classification'];
+    $menu_serving_size = $_POST['menu_serving_size'];
+    $menu_kcal = $_POST['menu_kcal'];
+    $menu_protein = $_POST['menu_protein'];
+    $menu_fat = $_POST['menu_fat'];
+    $menu_carbohydrate = $_POST['menu_carbohydrate'];
+    $menu_sugar = $_POST['menu_sugar'];
+    $menu_dietary_fiber = $_POST['menu_dietary_fiber'];
+    $menu_calcium = $_POST['menu_calcium'];
+    $menu_magnesium = $_POST['menu_magnesium'];
+    $menu_potassium = $_POST['menu_potassium'];
+    $menu_sodium = $_POST['menu_sodium'];
+    $menu_cholesterol = $_POST['menu_cholesterol'];
+
+
+    $check1 = "BEGIN TRANSACTION";
+    $check2 = "INSERT INTO nutrition(name,classification,serving_size,kcal,protein) VALUES('$menu_name','$menu_classification','$menu_serving_size','$menu_kcal','$menu_protein')";
+    $check3 = "INSERT INTO nutrition(fat,carbohydrate,sugar,dietary_fiber,calcium,magnesium,potassium,sodium,cholesterol) VALUES('$menu_fat','$menu_carbohydrate','$menu_sugar','$menu_dietary_fiber','$menu_calcium','$menu_magnesium','$menu_potassium','$menu_sodium','$menu_cholesterol')";
+    $check4 = "COMMIT";
+    
+    $result1 = $mysqli->query($check1);
+    $result2 = $mysqli->query($check2);
+    $result3 = $mysqli->query($check3);
+    $result4 = $mysqli->query($check4);
+
+    if($result1&&$result2&&$result3&&$result4){
+       echo "음식정보가 입력되었습니다";
+       
+    }
+    else echo "음식정보가 입력될 수 없습니다";
+   
+
+
+?>

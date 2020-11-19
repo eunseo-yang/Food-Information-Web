@@ -1,26 +1,3 @@
-<?php
-    include 'db_info.php';
-    session_start();
-
-
-    $name = $_POST['name'];
-    
-	$check = "SELECT * FROM Fooddb.recipe WHERE RCP_SEQ = '$name'";
-	$result = $mysqli->query($check);
-
-    if($result!=null){
-        $row = $result->fetch_array(3);
-        $a=$row['menu'];
-        echo $a;
-
-       
-    }
-    else echo "입력하신 음식을 찾을 수 없습니다";
-   
-
-
-?>
-
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -309,7 +286,9 @@
         </ul>
         </nav>
 
-    
+        <?php 
+            $sqlquery = "SELECT se"
+        ?>
 
         <form method='post' action="food_info_insert.php">
             <section class="login-input-section-wrap">
@@ -343,5 +322,27 @@
             </section>
     </div>
 </div>
+
 </body>
-</html>
+
+<?php
+    include 'db_info.php';
+
+    $name = $_POST['name'];
+    
+	$check = "SELECT * FROM Fooddb.recipe WHERE RCP_SEQ = '$name'";
+	$result = $mysqli->query($check);
+
+    if($result!=null){
+        $row = mysqli_fetch_array($result);
+        $a=$row['menu'];
+        echo $a;
+
+       
+    }
+    else echo "입력하신 음식을 찾을 수 없습니다";
+   
+
+
+?>
+
