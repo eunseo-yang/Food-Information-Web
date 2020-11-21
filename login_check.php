@@ -19,7 +19,7 @@
 			$_SESSION['id'] = $id;
 			if(isset($_SESSION['id'])){
 				echo "로그인이 완료되었습니다.";
-				echo"<script>location.href='main_page.html'</script>";
+				echo"<script>location.href='main_page2.php'</script>";
 			}
 			else{
 				echo "에러가 발생하였습니다";
