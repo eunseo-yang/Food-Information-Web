@@ -6,7 +6,7 @@
 
 /* nutrition table create */
 
-CREATE TABLE nutrition ( num int(10) DEFAULT NULL primary key, name varchar(20) ,
+CREATE TABLE nutrition ( num int(10) AUTO_INCREMENT primary key, name varchar(20) ,
  classification varchar(20) , serving_size int(5) ,
  kcal float , protein float , fat float , 
 carbohydrate float , sugar float, dietary_fiber float,
