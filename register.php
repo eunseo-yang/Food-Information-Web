@@ -277,30 +277,30 @@
 		<section class="login-input-section-wrap">
             <p> 이름를 입력하세요.</p>
 			<div class="login-input-wrap">  
-                <p><input placeholder="Username" type="text" id="name" name="name" value="name"></input></p>
+                <p><input placeholder="Username" type="text" id="name" name="name"></input></p>
 			</div>
 			<br>
 			<p> 사용할 ID를 입력하세요.</p>
 			<div class="login-input-wrap">  
-                <p><input placeholder="UserID" type="text" id="id" name="id" value="id"></input></p>
+                <p><input placeholder="UserID" type="text" id="id" name="id" ></input></p>
 			</div>
 			<br>
 			<p> 사용할 PW를 입력하세요.</p> 
             <div class="login-input-wrap">  
-                <p><input placeholder="Password" type="password" id="pwd" name="pwd" value="pwd"></input></p>
+                <p><input placeholder="Password" type="password" id="pwd" name="pwd" ></input></p>
 			</div>
 			<br>
 			<div class="login-input-wrap password-wrap">	
-                    <input type="text" placeholder="height" id="height" value="height" name="height"/> cm
+                    <input type="text" placeholder="height" id="height" name="height"/> cm
 			</div>
 			<br>
             <div class="login-input-wrap password-wrap">	
-                    <input type="text" placeholder="weight" id="weight" value="weight" name="weight"/> kg
+                    <input type="text" placeholder="weight" id="weight" name="weight"/> kg
 			</div>
 			<br>
 			<p> 성별을 입력하세요.</p> 
 			<div class="login-input-wrap password-wrap">	
-                    <input type="text" placeholder="gender 남자/여자" id="gender" value="gender" name="gender"/> 
+                    <input type="text" placeholder="gender 남자/여자" id="gender"  name="gender"/>
 			</div>
 		</section>
 		<section class="Easy-sgin-in-wrap">
