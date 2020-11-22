@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -242,8 +243,18 @@
             <br>
             <br>
             <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
-            <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-            <button type="button" onclick="location.href='sign_up.php'" id='home'>Sign Up</button>
+           <?php
+                       if(isset($_SESSION['id'])){ ?>
+                   <button type="button" onclick="location.href='logout.php'" id="home">Logout</button>
+                   <?php
+                       }
+                       else{
+                       ?>
+                   <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
+                   <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
+                   <?
+                       }
+                   ?>
             <br>
             <br>
             <br>

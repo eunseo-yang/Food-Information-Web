@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype HTML>
 <head>
     <meta charset="UTF-8">
@@ -279,8 +280,18 @@
     <h1> Health Care Service </h1>
     <br>
     <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
-    <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-    <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
+     <?php
+                if(isset($_SESSION['id'])){?>
+            <button type="button" onclick="location.href='logout.php'" id="home">Logout</button>
+            <?php
+                }
+                else{
+                ?>
+            <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
+            <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
+            <?
+                }
+            ?>
     <br>
     <br>
     <br>
@@ -328,6 +339,7 @@
         }
         $time = (float)($calorie / 5 * 1000 / $weight / $met);
         $time = round($time);
+        echo '$time';
     }
     
  

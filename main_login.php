@@ -1,3 +1,5 @@
+/*필요없는 파일 버리기 */
+
 <?php
 //include 'db_info.php';
 

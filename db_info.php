@@ -1,8 +1,8 @@
 <?php
 	$mysql_hostname = "localhost";
-	$mysql_username = "Team13"; 
-	$mysql_password = "Team13";
-	$mysql_database = "Team13"; 
+	$mysql_username = "root";   //Team13으로 바꾸기!!
+	$mysql_password = "1234";
+	$mysql_database = "fooddb";
 	$mysql_port = '3306';
 	$mysql_charset = 'UTF8';
 	// DB 연결

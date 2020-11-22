@@ -1,3 +1,6 @@
+/* 필요 없는 파일 버리기 */
+
+<?php session_start(); ?>
 <!doctype HTML>
 <head>
    <meta charset="UTF-8">
@@ -231,8 +234,18 @@
             <h1> Health Care Service </h1>
         </header>
         <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
-        <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-        <button type="button" onclick="location.href='sign_up.php'" id='home'>Sign Up</button>
+       <?php
+                   if(isset($_SESSION['id'])){ ?>
+               <button type="button" onclick="location.href='logout.php'" id="home">Logout</button>
+               <?php
+                   }
+                   else{
+                   ?>
+               <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
+               <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
+               <?
+                   }
+               ?>
         <br>
         <br>
         <br>

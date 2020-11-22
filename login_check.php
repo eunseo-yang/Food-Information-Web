@@ -1,5 +1,6 @@
 <!doctype HTML>
 <head>
+    <meta charset="UTF-8">
 </head>
 <body>
 <?php
@@ -10,7 +11,7 @@
 	$id = $_POST['id'];
 	$password = $_POST['pwd'];
 	$check = "SELECT * FROM user WHERE id = '$id'";
-	$result = $mysqli->query($check);
+	$result =mysqli_query($mysqli, $check);
 
 	if(!empty($result)){
 		$row = mysqli_fetch_array($result);
@@ -18,11 +19,11 @@
 		if($row['pwd']==$password){
 			$_SESSION['id'] = $id;
 			if(isset($_SESSION['id'])){
-				echo "로그인이 완료되었습니다.";
-				echo"<script>location.href='main_page2.php'</script>";
+				echo "<script> alert('로그인이 완료되었습니다.');</script>";
+				echo"<script>location.href='main_page.html'</script>";
 			}
 			else{
-				echo "에러가 발생하였습니다";
+				echo "<script> alert('에러가 발생했습니다.');</script>";
 				
 			}
 		}

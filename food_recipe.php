@@ -1,7 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-	<title>Team13</title>
+	<title>Login</title>
 	<link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
     <style type = "text/css">
@@ -288,8 +289,18 @@
     <h1> Health Care Service </h1>
     <br>
     <button type="button" onclick="location.href='main_page.html'" id="home">Home</button>
-    <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
-    <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
+   <?php
+               if(isset($_SESSION['id'])){ ?>
+           <button type="button" onclick="location.href='logout.php'" id="home">Logout</button>
+           <?php
+               }
+               else{
+               ?>
+           <button type="button" onclick="location.href='Login.html'" id="home">Login</button>
+           <button type="button" onclick="location.href='register.php'" id='home'>Sign Up</button>
+           <?
+               }
+           ?>
     <br>
     <br>
     <br>
@@ -317,6 +328,10 @@
 
                  $sqlquery = "SELECT * FROM recipe WHERE RCP_NM = '$recipe_food_name'";
                  $result=mysqli_query($mysqli,$sqlquery);
+
+                 $viewsql = "UPDATE view_table A INNER JOIN recipe B ON A.view_index = B.RCP_INDEX SET A.view_num = A.view_num + 1, A.late_view = NOW() WHERE B.RCP_NM = '$recipe_food_name' ";
+
+               mysqli_query($mysqli, $viewsql);
 
                 if(mysqli_num_rows($result)==0){
                        echo " 등록된 글이 없습니다.";
@@ -468,8 +483,3 @@
 
 
     </section>
-
-
-
-
-

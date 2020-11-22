@@ -1,3 +1,4 @@
+/*필요없는 파일 버리기 */
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
