@@ -429,11 +429,12 @@ name varchar(15)
 /*today_info about person's menu table create*/
 
 CREATE TABLE today_info(
-today_index int primary key auto_increment,
+today_index varchar(20),
 user_id varchar(24),
 morning_menu varchar(20),
 lunch_menu varchar(20),
 dinner_menu varchar(20),
+primary key(today_index,user_id),
 FOREIGN KEY (user_id) REFERENCES user(id) ON UPDATE CASCADE
 );
 
