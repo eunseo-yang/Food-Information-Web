@@ -354,8 +354,7 @@
 	$result = $mysqli->query($check);
 
     $check1 = "START TRANSACTION";
-    $check5="ALTER table nutrition auto_increment=300";
-    $check2 = "INSERT INTO nutrition VALUES('$menu_name','$menu_classification','$menu_serving_size','$menu_kcal','$menu_protein','$menu_fat','$menu_carbohydrate','$menu_sugar','$menu_dietary_fiber','$menu_calcium','$menu_magnesium','$menu_potassium','$menu_sodium','$menu_cholesterol')";
+    $check2 = "INSERT INTO nutrition('name','classification','serving_size','kcal','protein','fat','carbohydrate','sugar','dietary_fiber','calcium','magnesium','potassium','sodium','cholesterol') VALUES('$menu_name','$menu_classification','$menu_serving_size','$menu_kcal','$menu_protein','$menu_fat','$menu_carbohydrate','$menu_sugar','$menu_dietary_fiber','$menu_calcium','$menu_magnesium','$menu_potassium','$menu_sodium','$menu_cholesterol')";
     $check3 = "SELECT * FROM nutrition";
     $check4 = "COMMIT";
     
@@ -365,7 +364,7 @@
     $result4 = $mysqli->query($check4);
 
 
-    if($result1&&$result2&&$result3&&$result4){
+    if($result1&&$result3&&$result4){
        echo "음식정보가 입력되었습니다";
        
     }

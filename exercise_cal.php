@@ -329,31 +329,13 @@
 
     $sqlquery = "SELECT met FROM moderate_intensity WHERE moderate_name = '$exercise'";
     $result=mysqli_query($mysqli,$sqlquery);
-    $sqlquery2 = "SELECT met FROM light_intensity WHERE light_name = '$exercise'";
-    $result2=mysqli_query($mysqli,$sqlquery2);
-    $sqlquery3 = "SELECT met FROM vigorous_intensity WHERE vigorous_name = '$exercise'";
-    $result3=mysqli_query($mysqli,$sqlquery3);
     
-    if(mysqli_num_rows($result)==0 && mysqli_num_rows($result2)==0 && mysqli_num_rows($result3)==0){
+    if(mysqli_num_rows($result)==0){
         $message = " 해당하는 운동을 찾지 못했습니다.";
     }
     else{
-        $message = "해당하는 운동을 찾았습니다";
-
-        if (mysqli_num_rows($result)!=0){
-            while($row=mysqli_fetch_assoc($result)){
-                $met = $row['met'];
-            }
-        }
-        else if (mysqli_num_rows($result2)!=0){
-            while($row=mysqli_fetch_assoc($result2)){
-                $met = $row['met'];
-            }
-        }
-        else{
-            while($row=mysqli_fetch_assoc($result3)){
-                $met = $row['met'];
-            }
+        while($row=mysqli_fetch_assoc($result)){
+            $met = $row['met'];
         }
         $time = (float)($calorie / 5 * 1000 / $weight / $met);
         $time = round($time);
@@ -365,12 +347,7 @@
 
 <section class="login-input-section-wrap">
     <h2> 당신의 기초대사량은 <?php echo $metabolic ?>정도 입니다. </h2>
-    <?php 
-    if ($message != " 해당하는 운동을 찾지 못했습니다."){
-        ?><h3> 당신에게는 <?php echo $exercise ?> 운동 <?php echo $time ?>분을 추천합니다. </h3>
-        <?php
-    }
-    ?>
+    <h3> 당신에게는 <?php echo $exercise ?> 운동 <?php echo $time ?>분을 추천합니다. </h3>
 </section>
 
 </div>
