@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-	<title>Team13</title>
+	<title>Login</title>
 	<link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
     <style type = "text/css">
@@ -296,7 +296,7 @@
     <nav id="topMenu">
         <ul>
             <li><a class="menuLink" href="food_info.html">Food Information</a></li>
-            <li><a class="menuLink" href="food_recipe_list.php">Food Recipe</a></li>
+            <li><a class="menuLink" href="food_recipe.php">Food Recipe</a></li>
             <li><a class="menuLink" href="exercise.html">Excercise Calculation</a></li>
             <li><a class="menuLink" href="needed_cal_nut.html">Check Health</a></li>
         </ul>
@@ -317,6 +317,10 @@
 
                  $sqlquery = "SELECT * FROM recipe WHERE RCP_NM = '$recipe_food_name'";
                  $result=mysqli_query($mysqli,$sqlquery);
+
+                 $viewsql = "UPDATE view_table A INNER JOIN recipe B ON A.view_index = B.RCP_INDEX SET A.view_num = A.view_num + 1, A.late_view = NOW() WHERE B.RCP_NM = '$recipe_food_name' ";
+
+               mysqli_query($mysqli, $viewsql);
 
                 if(mysqli_num_rows($result)==0){
                        echo " 등록된 글이 없습니다.";
